@@ -2,7 +2,60 @@
     <app-menu></app-menu>
 </div>
 <header>
-    <!--  -->
+    <div class="container mx-auto">
+        <div class="title pb-4 pt-5">
+            <br><br><br>
+            No te quedes sin una habitación <br><br>
+            Aqui puedes realizar tu reservación <br> <br>
+            <button routerLink="/login" class="btn btn-outline-light mt-3">Iniciari Sesion</button>
+        </div>
+        <div class="formulario">
+            <div class="mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        Reservacion
+                    </div>
+                    <div class="card-body text-center">
+                        <form [formGroup]="nuevoRegistro" (ngSubmit)="agregarRegistro()">
+                            <div class="row g-5">
+                                <div class="col-md">
+                                    <div class="form-floating mb-3">
+                                        <input type="date" onkeydown="return false" formControlName="fecIn" class="form-control" placeholder="Dia de entrada" id="floatingDiaE"> <!--bsDatepicker [bsConfig]="{dateInputForm}"-->
+                                        <label for="floatingDiaE">Dia de entrada</label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <input type="date" onkeydown="return false" formControlName="fecOut" class="form-control" placeholder="Dia de salida" id="floatingDiaS"> <!--bsDatepicker-->
+                                        <label for="floatingDiaS">Dia de salida</label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating mb-3">
+                                        <input type="number" onkeydown="return false" formControlName="NumA" onkeydown="" value="1" class="form-control" id="floatingAdulto" placeholder="1" min="1" max="20">
+                                        <label for="floatingAdulto">Adultos</label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <input type="number" onkeydown="return false" formControlName="NumN" value="0" class="form-control" id="floatingNino" placeholder="0" min="0" max="20">
+                                        <label for="floatingNino">Niños</label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating mb-3">
+                                        <input type="number" onkeydown="return false" formControlName="NumC" value="1" class="form-control" id="floatingCuarto" placeholder="1" min="1" max="15">
+                                        <label for="floatingCuarto">Cuartos</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="boton btn mt-3" type="submit">Reservar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 <main>
     <!-- HABITACIONES -->
