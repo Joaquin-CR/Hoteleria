@@ -1,0 +1,91 @@
+header{
+    background-image: url('../../../assets/Imagenes/Fonod-playa.jpg');
+    height: 550px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.boton{
+    background-color: #FE905F;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.empleados{
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.boton:hover{
+    background-color: #253B50;
+}
+
+.title{
+    color: white;
+    font-size: 300%;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    /* position: absolute; */
+    top: 40%;
+    text-align: center;
+}
+
+.formulario{
+    /* position: absolute; */
+    top: 60%;
+}
+
+#row-habitaciones{
+    background-color: #0C151A;
+    margin: 0;
+}
+
+#row-habitaciones img{
+    height: 250px;
+    border-radius: 20%;
+}
+
+#row-lugar{
+    background-color: #1A1A1A;
+    background-size: cover;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#row-lugar img{
+    width: 600px;
+    border-radius: 15%;
+}
+
+#row-redes{
+    background-color: #1B170C;
+}
+
+#row-contacto{
+    background-color: #8D8D8D;
+    color: black;
+}
+
+#email{
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+::-webkit-scrollbar-track{
+    background: #253B50;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #FE905F;
+    border-radius: 50px;
+}
