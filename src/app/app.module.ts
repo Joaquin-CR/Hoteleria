@@ -1,6 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -19,8 +21,11 @@ const appRoutes: Routes = [
     LandingPageComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
