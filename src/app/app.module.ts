@@ -18,7 +18,7 @@ import { MenuComponent } from './Components/menu/menu.component';
 const appRoutes: Routes = [
   {path: '', redirectTo: 'landingpage', pathMatch:'full'}, //Esto va a ser lo primero que se mostrará cuando no haya nada cargado
   {path: 'landingpage', component: LandingPageComponent},
-  {path:'**', redirectTo: 'landingpage', pathMatch: 'full'} //Si se ingresa un complemento de liga esta redirecciona a la indicada
+  {path:'**', redirectTo: 'landingpage', pathMatch: 'full'} //Si se ingresa un complemento de liga erroneo esta redirecciona a la indicada
 ]
 
 @NgModule({
