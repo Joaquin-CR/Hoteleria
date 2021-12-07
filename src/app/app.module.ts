@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service'; //Cookies 
+// import { CookieService } from 'ngx-cookie-service'; //Cookies 
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [CookieService],
+  providers: [/*CookieService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
