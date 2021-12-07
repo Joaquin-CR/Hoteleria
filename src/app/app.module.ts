@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 // COMPONENTES
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './Components/landing-page/landing-page.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'landingpage', pathMatch:'full'}, //Esto va a ser lo primero que se mostrará cuando no haya nada cargado
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
