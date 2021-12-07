@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { CookiesService } from 'src/app/Services/cookies-s.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,7 +12,9 @@ export class LandingPageComponent implements OnInit
   nuevoRegistro: FormGroup;
   submitted = false;
   loading = false;
-  constructor(private fb: FormBuilder,) 
+  constructor(private fb: FormBuilder,
+    // private _cookies: CookiesService,
+    ) 
   { 
     this.nuevoRegistro = this.fb.group({
       fecIn: ['', [Validators.required, Validators.pattern("^[0-9-]*$")]],
