@@ -1,1 +1,75 @@
-<p>login-usuario works!</p>
+<app-menu></app-menu>
+<body>
+    <div class="container w-75 pt-5">
+        <div class="row">
+            <div class="col">
+                <!-- IMAGEN -->
+                <img class="logo" src="assets/Imagenes/playa.jpg" alt="Playa">
+            </div>
+            <div class="col">
+                <div class="text-end">
+                    <!-- Logo -->
+                    <!-- <img class="logo" src="assets/Imagenes/Logo-caballo.png" alt="Playa"> -->
+                </div>
+                <h2 class="fw-bold text-center pt-4">Bienvenido</h2>
+                <h3 class="text-center">Iniciar Sesion</h3>
+                <!-- LOGIN -->
+                <form [formGroup]="login" (ngSubmit)="usuarioLogin()">
+                    <div class="row g-5">
+                        <div class="col-md">
+                            <div class="form-floating mb-3">
+                                <input type="text" formControlName="User" class="form-control" id="floatingUser" placeholder="Juanito25">
+                                <label for="floatingUser">Usuario</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input type="password" formControlName="Password" class="form-control" id="floatingPass" placeholder="**************">
+                                <label for="floatingPass">Contraseña</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CHECKBOX -->
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" name="TYC" formControlName="checkTerminons" class="form-check-input" id="">
+                        <label for="TYC" class="form-check-label">Acepto los terminos y condiciones</label>
+                    </div>
+                    <!-- BOTONES -->
+                    <div class="d-grid mb-1">
+                        <button class="btn mt-3 btn-outline-primary" type="submit">Ingresar</button>
+                    </div>
+                </form>
+                <div class="d-grid mb-1">
+                    <button routerLink="/landingpage" class="btn mt-3 btn-outline-dark" >Regresar</button>
+                </div>
+                <!-- REGISTRO -->
+                <div class="my-3s">
+                    <span>No tienes cuenta? <a routerLink="/registro">Registrate</a></span><br>
+                    <span><a href="">Recuperar Contraseña</a></span>
+                </div>
+                <!-- INICIO DE SESION CON REDE SOCIALES -->
+                <div class="container py-4">
+                    <div class="row text-center">
+                        <div class="col">Iniciar sesión</div>
+                    </div>
+                    <div class="row">
+                        <!-- FACEBOOK -->
+                        <div class="col">
+                            <button class="btn btn-outline-primary w-100 my-1">
+                                <i class="fab fa-facebook-f" style="margin-right: 5px;"></i>
+                                Facebook
+                            </button>
+                        </div>
+                        <!-- GOOGLE -->
+                        <div class="col">
+                            <button class="btn btn-outline-danger w-100 my-1">
+                                <i class="fab fa-google" style="margin-right: 5px;"></i>
+                                Google
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
