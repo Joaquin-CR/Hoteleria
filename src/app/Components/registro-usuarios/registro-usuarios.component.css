@@ -1,0 +1,12 @@
+.logo{
+    height: 65px;
+}
+body{
+    background: #ffe259;
+    background: linear-gradient(to right, #64A2AD, #D4C09B);
+    /* background-repeat: repeat-y; */
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 90px;
+    padding-bottom: 50%;
+}
