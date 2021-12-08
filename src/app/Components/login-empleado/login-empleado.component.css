@@ -1,0 +1,12 @@
+body{
+    background: #ffe259;
+    background: linear-gradient(to right, #64A2AD, #D4C09B);
+    background-size: cover;
+    /* background: scroll; */
+    background-attachment: fixed;
+    padding-top: 55px;
+  }
+
+img{
+  border-radius: 10%;
+}
