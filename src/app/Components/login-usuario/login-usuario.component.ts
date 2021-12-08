@@ -49,7 +49,14 @@ export class LoginUsuarioComponent implements OnInit {
         positionClass: 'toast-bottom-right'
       });
       // Se redirecciona de nuevo a la landing
-      //this.router.navigate(['/landingpage']);
+      this.router.navigate(['/landingpage']);
+    }
+    else
+    {
+      this.toastr.error('El usuario o la contraseña son incorrectas', 'Error',
+      {
+        positionClass: 'toast-bottom-right'
+      });
     }
   }
 
