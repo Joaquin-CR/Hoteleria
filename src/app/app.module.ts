@@ -16,6 +16,7 @@ import { LandingPageComponent } from './Components/landing-page/landing-page.com
 import { MenuComponent } from './Components/menu/menu.component';
 import { LoginUsuarioComponent } from './Components/login-usuario/login-usuario.component';
 import { LoginEmpleadoComponent } from './Components/login-empleado/login-empleado.component';
+import { RegistroUsuariosComponent } from './Components/registro-usuarios/registro-usuarios.component';
 
 // const appRoutes: Routes = [
 //   {path: '', redirectTo: 'landingpage', pathMatch:'full'}, //Esto va a ser lo primero que se mostrará cuando no haya nada cargado
@@ -31,7 +32,8 @@ import { LoginEmpleadoComponent } from './Components/login-empleado/login-emplea
     LandingPageComponent,
     MenuComponent,
     LoginUsuarioComponent,
-    LoginEmpleadoComponent
+    LoginEmpleadoComponent,
+    RegistroUsuariosComponent
   ],
   imports: [
     CommonModule,
