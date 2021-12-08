@@ -6,20 +6,6 @@ import { LoginEmpleadoComponent } from './Components/login-empleado/login-emplea
 import { LoginUsuarioComponent } from './Components/login-usuario/login-usuario.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: AppComponent,
-    children: [
-      {
-        path: 'empleados',
-        loadChildren: () => import('./Modules/empleados/empleados.module').then(mod => mod.EmpleadosModule)
-      },
-      {
-        path: 'usuarios',
-        loadChildren: () => import('./Modules/usuarios/usuarios.module').then(mod => mod.UsuariosModule)
-      }
-    ]
-  },
   {
     path: '', 
     redirectTo: 'landingpage', 
@@ -41,7 +27,21 @@ const routes: Routes = [
     path:'**', 
     redirectTo: 'landingpage', 
     pathMatch: 'full'
-  } //Si se ingresa un complemento de liga erroneo esta redirecciona a la indicada
+  }, //Si se ingresa un complemento de liga erroneo esta redirecciona a la indicada
+  { 
+    path: '', 
+    component: AppComponent,
+    children: [
+      {
+        path: 'empleados',
+        loadChildren: () => import('./Modules/empleados/empleados.module').then(mod => mod.EmpleadosModule)
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('./Modules/usuarios/usuarios.module').then(mod => mod.UsuariosModule)
+      }
+    ]
+  }
 ];
 
 @NgModule({
