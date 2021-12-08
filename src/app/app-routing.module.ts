@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './Components/landing-page/landing-page.component';
 import { LoginEmpleadoComponent } from './Components/login-empleado/login-empleado.component';
 import { LoginUsuarioComponent } from './Components/login-usuario/login-usuario.component';
+import { RegistroUsuariosComponent } from './Components/registro-usuarios/registro-usuarios.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'acceso-empleado', 
     component: LoginEmpleadoComponent
+  },
+  {
+    path: 'registro', 
+    component: RegistroUsuariosComponent
   },
   {
     path:'**', 
