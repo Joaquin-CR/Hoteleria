@@ -35,7 +35,7 @@ export class RegistroUsuariosComponent implements OnInit {
       ConfirmPass: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.-]*$")]],
       Lada: ['', Validators.required],
       Phone: ['', [Validators.required, Validators.pattern("^[0-9]*$")]]
-    })
+    });
 
     this.userName = "";
     this.contrasena = "";
@@ -55,7 +55,10 @@ export class RegistroUsuariosComponent implements OnInit {
     if(this.contrasena == this.confirm_contrasena)
     {
       this.userName = this.registroUsuario.value.UserName;
+      // SE HACE LA CONSULTA AL SERVIDOR
       this._usuarioService.getUsuario(this.userName).subscribe(res =>{
+        /* EL NOMBRE DE USUARIO DEBE DE SER UNICO, ASÍ QUE SI NO ENCUENTRA UNO EXISTENTE ENTRA DEL LADO 
+           VERDADERO DEL IF*/
         if(Object.keys(res).length == 0)
         {
           this.phone = ""+this.registroUsuario.value.Lada+this.registroUsuario.value.Phone
@@ -68,6 +71,7 @@ export class RegistroUsuariosComponent implements OnInit {
             pass: this.contrasena,
             cell: this.phone
           }
+          // SE REGISTRA EL NUEVO USUARIO EN LA BASE DE DATOS
           this._usuarioService.addUsuario(nuevoUser).subscribe();
           this.toastr.success('El registro se logró de manera exitosa', 'ACCION EXITOSA',
           {
