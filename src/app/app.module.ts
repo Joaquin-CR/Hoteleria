@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 // MODULOS
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { RegistroUsuariosComponent } from './Components/registro-usuarios/regist
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     // RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot(), // ToastrModule added
   ],
