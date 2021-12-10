@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmpleadosService } from 'src/app/Services/empleados.service';
+import { ReservacionesService } from 'src/app/Services/reservaciones.service';
+import { UsuariosService } from 'src/app/Services/usuarios.service';
 // import { CookiesService } from 'src/app/Services/cookies-s.service';
 
 @Component({
@@ -13,8 +16,11 @@ export class LandingPageComponent implements OnInit
   submitted = false;
   loading = false;
   constructor(private fb: FormBuilder,
-    // private _cookies: CookiesService,
-    ) 
+              private _usuariosService: UsuariosService,
+              private _empleadosService: EmpleadosService,
+              private _reservacionesService: ReservacionesService,
+              // private _cookies: CookiesService,
+              ) 
   { 
     this.nuevoRegistro = this.fb.group({
       fecIn: ['', [Validators.required, Validators.pattern("^[0-9-]*$")]],
@@ -32,6 +38,17 @@ export class LandingPageComponent implements OnInit
 
   agregarRegistro()
   {
+    this._reservacionesService.getReservacion().subscribe(res=>{
+      console.log(res)
+    }, err => console.log(err))
+
+    this._empleadosService.getEmpleados().subscribe(res=>{
+      console.log(res)
+    }, err => console.log(err))
+
+    this._usuariosService.getUsuarios().subscribe(res=>{
+      console.log(res)
+    }, err => console.log(err))
     this.loading = true;
     this.submitted = true;
     // if(this._cookies.checkToken())
