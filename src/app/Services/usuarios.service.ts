@@ -36,7 +36,7 @@ export class UsuariosService
     return this._http.delete(this.url+'/'+userName);
   }
 
-  updateReservacion(id:string, usuario: Usuario)
+  updateUsuario(id:string, usuario: Usuario)
   {
     return this._http.put(this.url+'/'+id, usuario);
   }
@@ -44,6 +44,11 @@ export class UsuariosService
   usuarioLogeado(logeado: boolean)
   {
     this.logeado = logeado;
+  }
+
+  getUsuarioLogeado()
+  {
+    return this.logeado;
   }
 
 }
