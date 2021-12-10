@@ -29,11 +29,6 @@ const routes: Routes = [
     path: 'registro', 
     component: RegistroUsuariosComponent
   },
-  {
-    path:'**', 
-    redirectTo: 'landingpage', 
-    pathMatch: 'full'
-  }, //Si se ingresa un complemento de liga erroneo esta redirecciona a la indicada
   { 
     path: '', 
     component: AppComponent,
@@ -47,7 +42,12 @@ const routes: Routes = [
         loadChildren: () => import('./Modules/usuarios/usuarios.module').then(mod => mod.UsuariosModule)
       }
     ]
-  }
+  },
+  {
+    path:'**', 
+    redirectTo: 'landingpage', 
+    pathMatch: 'full'
+  }, //Si se ingresa un complemento de liga erroneo esta redirecciona a la indicada
 ];
 
 @NgModule({
