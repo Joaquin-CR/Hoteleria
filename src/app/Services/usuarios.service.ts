@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class UsuariosService 
 {
 
+  logeado!: boolean;
   url = "/api/usuarios";
 
   constructor(private _http: HttpClient) 
@@ -38,6 +39,11 @@ export class UsuariosService
   updateReservacion(id:string, usuario: Usuario)
   {
     return this._http.put(this.url+'/'+id, usuario);
+  }
+
+  usuarioLogeado(logeado: boolean)
+  {
+    this.logeado = logeado;
   }
 
 }
