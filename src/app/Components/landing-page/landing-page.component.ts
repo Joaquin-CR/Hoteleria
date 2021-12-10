@@ -43,11 +43,6 @@ export class LandingPageComponent implements OnInit
     // if(this._cookies.checkToken())
     // {
     //   console.log(this.nuevoRegistro);
-    //   // this._registroService.getReservaciones().subscribe(res =>{
-    //   //   console.log(res)
-    //   // },
-    //   //   err => console.log(err)
-    //   // )
     //   const nuevaRes: Reservacion = 
     //   {
     //     idRes: "zxy8888",
