@@ -38,17 +38,6 @@ export class LandingPageComponent implements OnInit
 
   agregarRegistro()
   {
-    this._reservacionesService.getReservacion().subscribe(res=>{
-      console.log(res)
-    }, err => console.log(err))
-
-    this._empleadosService.getEmpleados().subscribe(res=>{
-      console.log(res)
-    }, err => console.log(err))
-
-    this._usuariosService.getUsuarios().subscribe(res=>{
-      console.log(res)
-    }, err => console.log(err))
     this.loading = true;
     this.submitted = true;
     // if(this._cookies.checkToken())
