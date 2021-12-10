@@ -14,9 +14,10 @@
         <li class="nav-item"><a class="nav-link" href="#row-habitaciones">Habitaciones</a></li>
         <li class="nav-item"><a class="nav-link" href="#row-lugar">Turistico</a></li>
         <li class="nav-item"><a class="nav-link" href="#row-contacto">Contactanos</a></li>
-        <!-- Cuando ya este logeado, cambiar el de login por uno de usuario desplegable con opción
-            a cerrar sesion -->
-        <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+        <li *ngIf="!logeado" class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+        <li *ngIf="this.logeado" class="nav-item"><a class="nav-link" routerLink="/usuarios">Mis reservaciones</a></li>
+        <li *ngIf="this.logeado" class="nav-item"><a class="nav-link" (click)="cerrarSesion()">Cerrar sesion</a></li>
+        <li></li>
       </ul>  
     </div>
   </div>
