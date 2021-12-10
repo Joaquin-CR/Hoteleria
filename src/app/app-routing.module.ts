@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './Components/landing-page/landing-page.component';
 import { LoginEmpleadoComponent } from './Components/login-empleado/login-empleado.component';
@@ -50,7 +51,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    ToastrModule.forRoot(), // ToastrModule added
+  ], 
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
