@@ -1,0 +1,24 @@
+.container{
+    max-width: 1100px;
+  }
+  .logo{
+    height: 65px;
+    margin-left: 7%;
+  }
+  
+  .Menu{
+    color: white !important;
+  }
+  
+  @media(max-width:992px) {
+    .navbar-nav{
+      background-color: blue;
+    }
+  }
+  
+  nav{
+    background-color: rgba(127, 255, 212, 0.507);
+  }
+  li{
+    color: black;
+  }
