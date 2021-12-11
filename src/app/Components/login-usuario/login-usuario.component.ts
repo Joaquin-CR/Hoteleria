@@ -53,7 +53,7 @@ export class LoginUsuarioComponent implements OnInit {
       else
       {
         this._usuarioService.usuarioLogeado(true);
-        this.router.navigate(['/landingpage']);
+        // this.router.navigate(['/landingpage']);
         console.log(res);
         // if(formusu == this.userName && formpass == this.contra)
         // {
