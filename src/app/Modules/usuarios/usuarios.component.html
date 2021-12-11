@@ -1,1 +1,16 @@
-<div></div>
+<div>
+    <app-menu-usuario></app-menu-usuario>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <h1>Usuario component</h1>
+            <button class="btn btn-primary" (click)="activarReservaciones()">Mis reservaciones</button><br>
+            <button class="btn btn-secondary" (click)="activarConfiguraciones()">Configuración de mi perfil</button>
+            <div>
+                <app-gestion-usuario [llamarConfigUser]="llamarConfig"></app-gestion-usuario>
+                <app-reservaciones [llamarMiRes]="llamarReservaccion"></app-reservaciones>
+            </div>
+        </div>
+    </div>
+</div>
