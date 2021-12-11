@@ -54,6 +54,9 @@ export class LoginUsuarioComponent implements OnInit {
       {
         this._usuarioService.usuarioLogeado(true);
         // this.router.navigate(['/landingpage']);
+        var usuario = res;
+        
+        console.log();
         console.log(res);
         // if(formusu == this.userName && formpass == this.contra)
         // {
