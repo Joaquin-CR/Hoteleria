@@ -7,6 +7,7 @@ import { MenuUsuarioComponent } from './Components/menu-usuario/menu-usuario.com
 import { ReservacionesComponent } from './Components/reservaciones/reservaciones.component';
 import { GestionUsuarioComponent } from './Components/gestion-usuario/gestion-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NuevaResComponent } from './Components/nueva-res/nueva-res.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UsuariosComponent,
     MenuUsuarioComponent,
     ReservacionesComponent,
-    GestionUsuarioComponent
+    GestionUsuarioComponent,
+    NuevaResComponent
   ],
   imports: [
     CommonModule,

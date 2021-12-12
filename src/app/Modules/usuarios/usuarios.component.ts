@@ -9,6 +9,7 @@ export class UsuariosComponent implements OnInit
 {
 
   llamarReservaccion: boolean = true;
+  llamarNuevaRes: boolean = false;
   llamarConfig: boolean = false
   constructor() { }
 
@@ -18,12 +19,21 @@ export class UsuariosComponent implements OnInit
   activarReservaciones()
   {
     this.llamarReservaccion = true;
-    this.llamarConfig = false
+    this.llamarNuevaRes = false;
+    this.llamarConfig = false;
   }
 
   activarConfiguraciones()
   {
     this.llamarConfig = true;
+    this.llamarNuevaRes = false;
+    this.llamarReservaccion = false;
+  }
+
+  activarNuevaRes()
+  {
+    this.llamarConfig = false;
+    this.llamarNuevaRes = true;
     this.llamarReservaccion = false;
   }
 
