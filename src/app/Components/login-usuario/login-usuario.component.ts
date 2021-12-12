@@ -41,8 +41,9 @@ export class LoginUsuarioComponent implements OnInit {
     this.submitted = true;
     this.userName = this.login.value.User;
     this.contra = this.login.value.Password;
-    this._usuarioService.getUsuario(this.userName).subscribe(res =>{
-      if(Object.keys(res).length == 0)
+    this._usuarioService.getLiga("usuariosLogin");
+    this._usuarioService.getUsuario(this.userName).subscribe(data =>{
+      if(Object.keys(data).length == 0)
       {
         this.toastr.warning('No se encontró registro del usuario', 'ADVERTENCIA',
         {
@@ -54,10 +55,10 @@ export class LoginUsuarioComponent implements OnInit {
       {
         this._usuarioService.usuarioLogeado(true);
         // this.router.navigate(['/landingpage']);
-        var usuario = res;
+        var usuario = data.propertyIsEnumerable;
         
-        console.log();
-        console.log(res);
+        // console.log(res.payload.data()['id_user']);
+        console.log(data);
         // if(formusu == this.userName && formpass == this.contra)
         // {
         //   this.logeado = true;
