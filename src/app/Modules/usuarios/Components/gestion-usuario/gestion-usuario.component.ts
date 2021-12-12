@@ -45,12 +45,13 @@ export class GestionUsuarioComponent implements OnInit {
 
   getInfUser()
   {
-    // 
+    this._usuarioService.getLiga("usuarios");
   }
 
   activarUpdate()
   {
     this.editar = true;
+    this.getInfUser();
     this.mostrarDatos();
   }
 
