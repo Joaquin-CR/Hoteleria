@@ -49,35 +49,32 @@ export class LoginUsuarioComponent implements OnInit {
         {
           positionClass: 'toast-bottom-right'
         });
-        // this.router.navigate(['/login']);
       }
       else
       {
-        this._usuarioService.usuarioLogeado(true);
-        // this.router.navigate(['/landingpage']);
-        var usuario = data.propertyIsEnumerable;
         
-        // console.log(res.payload.data()['id_user']);
-        console.log(data);
-        // if(formusu == this.userName && formpass == this.contra)
-        // {
-        //   this.logeado = true;
-        //   // Se genera la cookie
-        //   // this._cookies.setToken(this._cookies.getRandomToken(16), this._cookies.nuevaExpiracion(1));
-        //   this.toastr.success('Acceso concedido', 'Acción exitosa',
-        //   {
-        //     positionClass: 'toast-bottom-right'
-        //   });
-        //   // Se redirecciona de nuevo a la landing
-        //   this.router.navigate(['/landingpage']);
-        // }
-        // else
-        // {
-        //   this.toastr.error('El usuario o la contraseña son incorrectas', 'Error',
-        //   {
-        //     positionClass: 'toast-bottom-right'
-        //   });
-        // } 
+        var usuario = Object.values(data);
+        let user = usuario[0]['id_user'];
+        let pass = usuario[0]['password_user'];
+        if(pass == this.contra)
+        {
+          this._usuarioService.usuarioLogeado(true);
+          // Se genera la cookie
+          // this._cookies.setToken(this._cookies.getRandomToken(16), this._cookies.nuevaExpiracion(1));
+          this.toastr.success('Acceso concedido', 'Acción exitosa',
+          {
+            positionClass: 'toast-bottom-right'
+          });
+          // Se redirecciona de nuevo a la landing
+          this.router.navigate(['/usuarios']);
+        }
+        else
+        {
+          this.toastr.error('El usuario o la contraseña son incorrectas', 'Error',
+          {
+            positionClass: 'toast-bottom-right'
+          });
+        } 
       }
     });
   }

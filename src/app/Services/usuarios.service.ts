@@ -22,6 +22,11 @@ export class UsuariosService
     this.url = this.url+liga;
   }
 
+  setDeafault()
+  {
+    this.url = "/api/";
+  }
+
   getUserName(usuario: string)
   {
     this.userName = usuario;
@@ -45,7 +50,9 @@ export class UsuariosService
 
   getUsuario(userName:string)
   {
-    return this._http.get(this.url+'/'+userName);
+    let user = this._http.get(this.url+'/'+userName);
+    this.setDeafault();
+    return user;
   }
 
   deleteUsuario(userName:string)
@@ -63,7 +70,17 @@ export class UsuariosService
     this.logeado = logeado;
   }
 
-  getUsuarioLogeado()
+  setUsuarioLogeado(user: string)
+  {
+    this.idUser = user;
+  }
+
+  getIdUsuario()
+  {
+    return this.idUser
+  }
+
+  getStatusLogeado()
   {
     return this.logeado;
   }

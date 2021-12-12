@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
@@ -18,14 +19,6 @@ import { MenuComponent } from './Components/menu/menu.component';
 import { LoginUsuarioComponent } from './Components/login-usuario/login-usuario.component';
 import { LoginEmpleadoComponent } from './Components/login-empleado/login-empleado.component';
 import { RegistroUsuariosComponent } from './Components/registro-usuarios/registro-usuarios.component';
-
-// const appRoutes: Routes = [
-//   {path: '', redirectTo: 'landingpage', pathMatch:'full'}, //Esto va a ser lo primero que se mostrará cuando no haya nada cargado
-//   {path: 'landingpage', component: LandingPageComponent},
-//   {path: 'login', component: LoginUsuarioComponent},
-//   {path: 'acceso-empleado', component: LoginEmpleadoComponent},
-//   {path:'**', redirectTo: 'landingpage', pathMatch: 'full'} //Si se ingresa un complemento de liga erroneo esta redirecciona a la indicada
-// ]
 
 @NgModule({
   declarations: [
@@ -43,6 +36,7 @@ import { RegistroUsuariosComponent } from './Components/registro-usuarios/regist
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     // RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot(), // ToastrModule added
   ],
