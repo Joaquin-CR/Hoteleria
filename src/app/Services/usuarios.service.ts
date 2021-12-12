@@ -27,12 +27,12 @@ export class UsuariosService
     this.url = "/api/";
   }
 
-  getUserName(usuario: string)
+  setUserName(usuario: string)
   {
     this.userName = usuario;
   }
 
-  getIdUser(id: string)
+  setIdUser(id: string)
   {
     this.idUser = id;
   }
@@ -78,6 +78,11 @@ export class UsuariosService
   getIdUsuario()
   {
     return this.idUser
+  }
+
+  getUserName()
+  {
+    return this.userName;
   }
 
   getStatusLogeado()
