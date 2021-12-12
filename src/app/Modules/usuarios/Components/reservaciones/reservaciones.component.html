@@ -1,3 +1,24 @@
 <div *ngIf="llamarMiRes" class="miReservacionComp">
-    <h1>Las reservaciones ya se verán</h1>
+    <button (click)="getReservaciones()">prueba</button> <br>
+    <table class="table table-hover">
+        <thead>
+            <td>Id de reservación</td>
+            <td>Fecha de ingreso</td>
+            <td>Fecha de salida</td>
+            <td>Número de adultos</td>
+            <td>Número de niños</td>
+            <td>Número de cuartos</td>
+        </thead>
+        <tbody>
+            <tr class="text" *ngFor="let reserv of res, let i = index">
+                <td>{{ reserv[i][0] }}</td>
+                <td>{{ reserv[i][1] }}</td>
+                <td>{{ reserv[i][2] }}</td>
+                <td>{{ reserv[i][3] }}</td>
+                <td>{{ reserv[i][4] }}</td>
+                <td>{{ reserv[i][5] }}</td>
+                <td>{{ reserv[i][6] }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
