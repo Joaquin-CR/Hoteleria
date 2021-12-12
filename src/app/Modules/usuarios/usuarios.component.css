@@ -1,0 +1,8 @@
+body{
+    background-image: url('../../../assets/Imagenes/Fonod-playa.jpg');
+    /* height: 550px; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
