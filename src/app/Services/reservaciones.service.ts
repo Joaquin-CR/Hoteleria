@@ -24,6 +24,11 @@ export class ReservacionesService {
     return this._http.post(this.url+'/', reservacion);
   }
 
+  obtenerMiReservacion(id:string)
+  {
+    return this._http.get("/api/mireservacion/"+id);
+  }
+
   getReservacion(id:string)
   {
     return this._http.get(this.url+'/'+id);
