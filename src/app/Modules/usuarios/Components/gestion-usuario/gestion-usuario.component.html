@@ -1,4 +1,126 @@
 <div *ngIf="llamarConfigUser" class="configUserComp">
-    <h3>Configuración esta funcionando</h3>
-    <button class="btn btn-outline-primary">Editar</button>
+    <h3>Datos del usuario</h3>
+    <div *ngIf="!editar">
+        <div class="row g-5">
+            <!-- NOMBRE -->
+            <div class="col-md">
+                <label for="">Nombre</label><br>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Juan" disabled>
+                    <label for="floatingName">{{nombre}}</label>
+                </div>
+            </div>
+            <!-- APELLIDO -->
+            <div class="col-md">
+                <label for="">Apellido</label><br>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingLast" placeholder="Perez" disabled>
+                    <label for="floatingLast">{{apellido}}</label>
+                </div>
+            </div>
+        </div>
+        <!-- NOMBRE DE USUARIO -->
+        <div class="row-md">
+            <label for="">Nombre de usuario</label><br>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingUser" placeholder="Juan35" disabled>
+                <label for="floatingUser">{{nombreUser}}</label>
+            </div>
+        </div>
+        <!-- CORREO ELECTRONICO -->
+        <div class="row-md">
+            <label for="">Correo electrónico</label><br>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingEmail" placeholder="juan@gmail.com" disabled>
+                <label for="floatingEmail">{{correo}}</label>
+            </div>
+        </div>
+        <!-- TELEFONO -->
+        <div class="row-md">
+            <label for="">Telefono</label><br>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPhone" placeholder="########" maxlength="10" minlength="10" disabled> 
+                <label for="floatingPhone">{{telefono}}</label>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="editar">
+        <form [formGroup]="modificarUsuario" (ngSubmit)="cancelarUpdate()">
+            <div class="row g-5">
+                <!-- NOMBRE -->
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="Name" class="form-control" id="floatingName" placeholder="Juan">
+                        <label for="floatingName">Nombre</label>
+                    </div>
+                </div>
+                <!-- APELLIDO -->
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="LastName" class="form-control" id="floatingLast" placeholder="Perez">
+                        <label for="floatingLast">Apellido</label>
+                    </div>
+                </div>
+            </div>
+            <!-- NOMBRE DE USUARIO -->
+            <div class="row-md">
+                <div class="form-floating mb-3">
+                    <input type="text" formControlName="UserName" class="form-control" id="floatingUser" placeholder="Juan35">
+                    <label for="floatingUser">Nombre de usuario</label>
+                </div>
+            </div>
+            <!-- CORREO ELECTRONICO -->
+            <div class="row-md">
+                <div class="form-floating mb-3">
+                    <input type="email" formControlName="Mail" class="form-control" id="floatingEmail" placeholder="juan@gmail.com">
+                    <label for="floatingEmail">Correo electrónico</label>
+                </div>
+            </div>
+            <br>
+            <!-- TELEFONO -->
+            <div class="row g-5">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select" aria-label="Default select example" formControlName="Lada" id="floatingLada">
+                            <option value="0" >Seleccine su lada</option>
+                            <option value="+52">Mexico +52</option>
+                            <option value="+1">Estados Unidos +1</option>
+                            <option value="+34">España +34</option>
+                            <option value="+54">Argentina +54</option>
+                            <option value="+49">Alemania +49</option>
+                            <option value="+370">Lituania +370</option>
+                            <option value="+44">Reino Unido +44</option>
+                        </select>
+                        <label for="floatingLada">Lada</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="tel" onkeydown="return false" formControlName="Phone" class="form-control" id="floatingPhone" placeholder="########" maxlength="10" minlength="10"> 
+                        <label for="floatingPhone">Telefono</label>
+                    </div>
+                    <span id="celHelpInline" class="form-text">
+                        Debe tener 10 digitos.
+                    </span>  <br>
+                    <!-- <span *ngIf="submitted && registroControl.Telefono.invalid" class="badge bg-danger">Telefono no valido</span> -->
+                </div>
+            </div>
+            <!-- BOTONES -->
+            <div class="d-grid justify-content-center" style="cursor:pointer;">
+                <span class="my-3">
+                    <button type="submit" class="btn btn-outline-primary w-30 align-items-center">Actualizar información</button>
+                    &nbsp;
+                    <button class="btn btn-outline-dark w-30 align-items-center" (click)="cancelarUpdate()">Cancelar</button>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="!editar">
+        <button class="btn btn-outline-primary" (click)="activarUpdate()">Editar información</button>
+        <button class="btn btn-outline-danger">Cambiar contraseña</button>
+    </div>
+    <div *ngIf="editar">
+        <button class="btn btn-outline-primary" disabled>Editar información</button>
+        <button class="btn btn-outline-danger" disabled>Cambiar contraseña</button>
+    </div>
 </div>
