@@ -6,6 +6,7 @@ import { UsuariosComponent } from './usuarios.component';
 import { MenuUsuarioComponent } from './Components/menu-usuario/menu-usuario.component';
 import { ReservacionesComponent } from './Components/reservaciones/reservaciones.component';
 import { GestionUsuarioComponent } from './Components/gestion-usuario/gestion-usuario.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,8 @@ import { GestionUsuarioComponent } from './Components/gestion-usuario/gestion-us
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     UsuariosRoutingModule
   ]
 })
