@@ -8,11 +8,28 @@ export class UsuariosService
 {
 
   logeado!: boolean;
-  url = "/api/usuarios";
+  userName!: string;
+  idUser!: string;
+  url = "/api/";
 
   constructor(private _http: HttpClient) 
-  { 
+  {
     // 
+  }
+
+  getLiga(liga: string)
+  {
+    this.url = this.url+liga;
+  }
+
+  getUserName(usuario: string)
+  {
+    this.userName = usuario;
+  }
+
+  getIdUser(id: string)
+  {
+    this.idUser = id;
   }
 
   getUsuarios()
