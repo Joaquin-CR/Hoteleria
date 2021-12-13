@@ -5,18 +5,37 @@
     <div class="container mx-auto">
         <br><br>
         <div class="row pt-5">
-            <div class="col-3 p-2">
-                <button class="btn btn-primary btn-outline-light d-grid" (click)="activarReservaciones()">Mis reservaciones</button> <br>
-                <button class="btn btn-succes d-grid">Nueva reservación</button>
-                <button class="btn btn-secondary d-grid" (click)="activarConfiguraciones()">Configuración de mi perfil</button> <br>
-                <button class="btn btn-warning d-grid">Cerrar sesión</button>
+            <div class="col-3 p-2 bg-secondary align-content-center">
+                <!-- BOTON QUE MUESTRA LAS RESERVACIONES YA HECHAS POR EL USUARIO -->
+                <div *ngIf="btnMiRes">
+                    <button class="Res btn btn-outline-dark d-grid" (click)="activarReservaciones()">Mis reservaciones</button> <br>
+                </div>
+                <div *ngIf="!btnMiRes">
+                    <button class="Res btn btn-dark d-grid" (click)="activarReservaciones()" disabled>Mis reservaciones</button> <br>
+                </div>
+                <!-- BOTON PARA CREAR UNA NUEVA RESERVACION -->
+                <div *ngIf="btnNewRes">
+                    <button class="btn btn-outline-light d-grid" (click)="activarNuevaRes()">Nueva reservación</button> <br>
+                </div>
+                <div *ngIf="!btnNewRes">
+                    <button class="btn btn-light d-grid" (click)="activarNuevaRes()" disabled>Nueva reservación</button> <br>
+                </div>
+                <!-- BOTON PARA HACER CAMBIOS EN LA INFORMACIÓN DEL USUARIO -->
+                <div *ngIf="btnConfig">
+                    <button class="btn btn-outline-warning d-grid" (click)="activarConfiguraciones()">Configurar de mi perfil</button> <br>
+                </div>
+                <div *ngIf="!btnConfig">
+                    <button class="btn btn-warning d-grid" (click)="activarConfiguraciones()" disabled>Configurar de mi perfil</button> <br>
+                </div>
+                <!-- BOTON PARA CERRAR SESION -->
+                <button class="btn btn-danger d-grid">Cerrar sesión</button>
 
             </div>
             <div class="col-9 bg-white">
                 <br>
                 <app-gestion-usuario [llamarConfigUser]="llamarConfig"></app-gestion-usuario>
                 <app-reservaciones [llamarMiRes]="llamarReservaccion"></app-reservaciones>
-                <!-- <app-nueva-res [llamarNewRes]="llamarNuevaRes"></app-nueva-res> -->
+                <app-nueva-res [llamarNewRes]="llamarNuevaRes"></app-nueva-res>
                 <br>
             </div>
         </div>
