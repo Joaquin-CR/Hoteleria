@@ -101,3 +101,17 @@ export interface Usuario
   pass: string;
   cell: string;
 }
+
+export interface UpdateUser
+{
+  nomUser: string;
+  apellUser: string;
+  userN: string;
+  mail: string;
+  cell: string;
+}
+
+export interface PassUpdateUser
+{
+  pass: string;
+}
