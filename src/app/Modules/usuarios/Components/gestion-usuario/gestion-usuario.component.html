@@ -1,6 +1,7 @@
 <div *ngIf="llamarConfigUser" class="configUserComp">
     <h3>Datos del usuario</h3>
-    <div *ngIf="!editar">
+    <!-- SE MUESTRAN LOS DATOS DEL USUARIO -->
+    <div *ngIf="!editar && !newPass">
         <div class="row g-5">
             <!-- NOMBRE -->
             <div class="col-md">
@@ -44,8 +45,9 @@
             </div>
         </div>
     </div>
-    <div *ngIf="editar">
-        <form [formGroup]="modificarUsuario" (ngSubmit)="cancelarUpdate()">
+    <!-- SE PUEDEN EDITAR CIERTOS DATOS DEL USUARIO -->
+    <div *ngIf="editar && !newPass">
+        <form [formGroup]="modificarUsuario" (ngSubmit)="verificarUpdate()">
             <div class="row g-5">
                 <!-- NOMBRE -->
                 <div class="col-md">
@@ -115,12 +117,55 @@
             </div>
         </form>
     </div>
-    <div *ngIf="!editar">
-        <button class="btn btn-outline-primary" (click)="activarUpdate()">Editar información</button>
-        <button class="btn btn-outline-danger">Cambiar contraseña</button>
+    <!-- SE HACE EL CAMBIO DE CONTRASEÑA -->
+    <div *ngIf="newPass && !editar"> 
+        <form [formGroup]="modificarContra" (ngSubmit)="verificarUpdate()">
+            <!-- VERIFICAR QUE ES EL PROPIETARIO -->
+            <div class="row-md">
+                <div class="form-floating mb-3">
+                    <input type="password" formControlName="OldPass" class="form-control" id="floatingOldPass" placeholder="****">
+                    <label for="floatingOldPass">Contraseña actual</label>
+                </div>
+            </div>
+            <!-- NUEVA CONTRASEÑA -->
+            <div class="row g-5">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="password" formControlName="Password" class="form-control" id="floatingNewPass" placeholder="**************">
+                        <label for="floatingNewPass">Nueva Contraseña</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="password" formControlName="ConfirmPass" class="form-control" id="floatingConfirmNewPass" placeholder="**************">
+                        <label for="floatingConfirmNewPass">Confirmar contraseña</label>
+                    </div>
+                </div>
+            </div> <br>
+            <div class="row text-center">
+                <div class="col">
+                    <button class=" btn btn-outline-warning">Confirmar</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-outline-dark" (click)="cancelarUpdate()">Cancelar</button>
+                </div>
+            </div>
+        </form> <br>
     </div>
-    <div *ngIf="editar">
-        <button class="btn btn-outline-primary" disabled>Editar información</button>
-        <button class="btn btn-outline-danger" disabled>Cambiar contraseña</button>
+    <div class="row text-center" *ngIf="!editar && !newPass">
+        <div class="col">
+            <button class="btn btn-outline-primary" (click)="activarUpdate()">Editar información</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-danger" (click)="cambiarPass()">Cambiar contraseña</button>
+        </div>
+    </div>
+    <div class="row text-center" *ngIf="editar || newPass">
+        <div class="col">
+            <button class="btn btn-outline-primary" disabled hidden>Editar información</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-danger" disabled hidden>Cambiar contraseña</button>
+        </div>
     </div>
 </div>
