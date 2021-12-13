@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -10,10 +11,19 @@ export class UsuariosComponent implements OnInit
 
   llamarReservaccion: boolean = true;
   llamarNuevaRes: boolean = false;
-  llamarConfig: boolean = false
-  constructor() { }
+  llamarConfig: boolean = false;
 
-  ngOnInit(): void {
+  btnMiRes: boolean = false;
+  btnNewRes: boolean = true;
+  btnConfig: boolean = true;
+  constructor(private router: Router,) 
+  { 
+    // 
+  }
+
+  ngOnInit(): void 
+  {
+    // 
   }
 
   activarReservaciones()
@@ -21,6 +31,10 @@ export class UsuariosComponent implements OnInit
     this.llamarReservaccion = true;
     this.llamarNuevaRes = false;
     this.llamarConfig = false;
+
+    this.btnConfig = true;
+    this.btnMiRes = false;
+    this.btnNewRes = true;
   }
 
   activarConfiguraciones()
@@ -28,6 +42,10 @@ export class UsuariosComponent implements OnInit
     this.llamarConfig = true;
     this.llamarNuevaRes = false;
     this.llamarReservaccion = false;
+
+    this.btnConfig = false;
+    this.btnMiRes = true;
+    this.btnNewRes = true;
   }
 
   activarNuevaRes()
@@ -35,6 +53,15 @@ export class UsuariosComponent implements OnInit
     this.llamarConfig = false;
     this.llamarNuevaRes = true;
     this.llamarReservaccion = false;
+
+    this.btnConfig = true;
+    this.btnMiRes = true;
+    this.btnNewRes = false;
+  }
+
+  logout()
+  {
+    this.router.navigate(['/landing']);
   }
 
 }

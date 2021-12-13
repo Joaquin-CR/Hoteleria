@@ -28,7 +28,7 @@ export class LandingPageComponent implements OnInit
       NumA: ['', [Validators.required, Validators.pattern("^[0-9-]*$")]],
       NumN: ['', [Validators.required, Validators.pattern("^[0-9-]*$")]],
       NumC: ['', [Validators.required, Validators.pattern("^[0-9-]*$")]]
-    })
+    });
   }
 
   ngOnInit(): void 
