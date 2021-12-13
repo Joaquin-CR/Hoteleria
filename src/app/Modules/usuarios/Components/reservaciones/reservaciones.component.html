@@ -1,23 +1,23 @@
 <div *ngIf="llamarMiRes" class="miReservacionComp">
     <button (click)="getReservaciones()">prueba</button> <br>
-    <table class="table table-hover">
+    <table class="table table-dark table-hover bg-dark text-center">
         <thead>
-            <td>Id de reservación</td>
-            <td>Fecha de ingreso</td>
-            <td>Fecha de salida</td>
-            <td>Número de adultos</td>
-            <td>Número de niños</td>
-            <td>Número de cuartos</td>
+            <td class="col">Id de reservación</td>
+            <td class="col">Fecha de ingreso</td>
+            <td class="col">Fecha de salida</td>
+            <td class="col">Número de adultos</td>
+            <td class="col">Número de niños</td>
+            <td class="col">Número de cuartos</td>
         </thead>
         <tbody>
-            <tr class="text" *ngFor="let reserv of res, let i = index">
-                <td>{{ reserv[i][0] }}</td>
-                <td>{{ reserv[i][1] }}</td>
-                <td>{{ reserv[i][2] }}</td>
-                <td>{{ reserv[i][3] }}</td>
-                <td>{{ reserv[i][4] }}</td>
-                <td>{{ reserv[i][5] }}</td>
-                <td>{{ reserv[i][6] }}</td>
+            <!-- *ngFor="let reserv of res, let i = index" -->
+            <tr class="text">
+                <td class="col">1</td>
+                <td class="col">2</td>
+                <td class="col">3</td>
+                <td class="col">4</td>
+                <td class="col">5</td>
+                <td class="col">6</td>
             </tr>
         </tbody>
     </table>
