@@ -40,12 +40,25 @@ export class LandingPageComponent implements OnInit
   {
     this.loading = true;
     this.submitted = true;
+
+    const  generateRandomString = () => {
+      const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let result1= ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < 7; i++ ) {
+          result1 += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+  
+      return result1;
+    }
+
+    let idReservacion = ""+generateRandomString();
     // if(this._cookies.checkToken())
     // {
     //   console.log(this.nuevoRegistro);
     //   const nuevaRes: Reservacion = 
     //   {
-    //     idRes: "zxy8888",
+    //     idRes: "idReservacion",
     //     idUser: 1999,
     //     fecIn: this.nuevoRegistro.value.fecIn,
     //     fecOut: this.nuevoRegistro.value.fecOut,
