@@ -66,7 +66,7 @@ export class LoginUsuarioComponent implements OnInit {
           {
             positionClass: 'toast-bottom-right'
           });
-          // Se redirecciona de nuevo a la landing
+          // Se redirecciona de nuevo a la pagina del usuario
           this.router.navigate(['/usuarios']);
         }
         else

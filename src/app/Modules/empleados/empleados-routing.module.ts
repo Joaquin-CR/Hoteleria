@@ -6,8 +6,6 @@ import { EmpleadosComponent } from './empleados.component';
 
 const routes: Routes = [
   { path: '', component: EmpleadosComponent },
-  { path: 'gestion-empleados', component: GestionEmpleadosComponent },
-  { path: 'registro-empleados', component: RegistroEmpleadosComponent}
 ];
 
 @NgModule({
