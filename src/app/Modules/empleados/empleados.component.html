@@ -6,10 +6,35 @@
         <br><br>
         <div class="row justify-content-end pt-5 text-center">
             <div class="col-9 bg-white">
-                <!--  -->
+                <app-reservaciones [llamarRes]="llamarReservacion"></app-reservaciones>
+                <app-gestion-empleados [llamarGesEmpl]="llamarGestionEmpleado"></app-gestion-empleados>
+                <app-registro-empleados [llamarNewEmpl]="llamarNuevoEmpleado"></app-registro-empleados>
             </div>
-            <div class="col-2 botonera">
-                <button>Cerrar sesión</button>
+
+            <div class="col-2 bg-secondary align-content-center p-2">
+                <!-- BOTON QUE MUESTRA LAS RESERVACIONES YA HECHAS POR EL USUARIO -->
+                <div *ngIf="btnRes">
+                    <button class="Res btn btn-outline-light d-grid" (click)="activarReservaciones()">Reservaciones</button> <br>
+                </div>
+                <div *ngIf="!btnRes">
+                    <button class="Res btn btn-light d-grid" disabled>Reservaciones</button> <br>
+                </div>
+                <!-- BOTON PARA MOSTRAR LOS EMPLEADOS Y MODIFICAR ATRIBUTOS -->
+                <div *ngIf="btnGestionEmpleado">
+                    <button class="btn btn-outline-dark d-grid" (click)="activarGestionEmpleados()">Gestión de empleados</button> <br>
+                </div>
+                <div *ngIf="!btnGestionEmpleado">
+                    <button class="btn btn-dark d-grid" disabled>Gestión de empleados</button> <br>
+                </div>
+                <!-- BOTON PARA CREAR REGISTRAR UN NUEVO EMPLEADO -->
+                <div *ngIf="btnNewEmpleado">
+                    <button class="btn btn-outline-warning d-grid" (click)="activarNuevoEmpleado()">Registro de empleados</button> <br>
+                </div>
+                <div *ngIf="!btnNewEmpleado">
+                    <button class="btn btn-warning d-grid" disabled>Registro de empleados</button> <br>
+                </div>
+                <!-- BOTON PARA CERRAR SESION -->
+                <button class="btn btn-danger d-grid" (click)="logout()">Cerrar sesión</button>
             </div>
         </div>
     </div>
