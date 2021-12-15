@@ -1,105 +1,66 @@
 <body *ngIf="llamarNewEmpl">
-    <div class="container">
-        <div class="col-xs-12 col-sm-6 col-md-7 mx-auto"> 
-            <div class="card">
-                <div class="card-body text-center">
-                    <!-- Encabezado -->
-                    <div class="col py-3">
-                        <!-- <h2 class="text-center">Conchas del mar</h2> -->
-                        <!-- <img class="logo" src="assets/Imagenes/Logo.png" alt="Concha de mar"> -->
+    <div class="text-center">
+        <h2>Registrar nuevo empleado</h2>
+        <!-- *ngIf="Cargando" -->
+        <!-- <div class="spinner-border text-primary float-end" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div> -->
+        <!-- FORMULARIO -->
+        <form autocomplete="off" [formGroup]="registroEmpleado" (ngSubmit)="nuevoEpmleado()">
+            <div class="row">
+                <div class="col-md">
+                    <!-- NOMBRE -->
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="Name" class="form-control" id="floatingName" placeholder="Juan">
+                        <label for="floatingName">Nombre</label>
                     </div>
-                    <h2>Registrar nuevo empleado</h2>
-                    <!-- *ngIf="Cargando" -->
-                    <!-- <div class="spinner-border text-primary float-end" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div> -->
-                    <!-- FORMULARIO -->
-                    <form autocomplete="off" [formGroup]="registroEmpleado" (ngSubmit)="nuevoEpmleado()">
-                        <div class="row g-5">
-                            <div class="col-md">
-                                <!-- NOMBRE -->
-                                <div class="form-floating mb-3">
-                                    <input type="text" formControlName="Name" class="form-control" id="floatingName" placeholder="Juan">
-                                    <label for="floatingName">Nombre</label>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <!-- APELLIDO -->
-                                <div class="form-floating mb-3">
-                                    <input type="text" formControlName="LastName" class="form-control" id="floatingLast" placeholder="Juan">
-                                    <label for="floatingLast">Apellido</label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- NOMBRE DE USUARIO -->
-                        <div class="row-md">
-                            <div class="form-floating mb-3">
-                                <input type="text" formControlName="Cargo" class="form-control" id="floatingUser" placeholder="Juan35">
-                                <label for="floatingUser">Puesto</label>
-                            </div>
-                        </div>
-                        <!-- CORREO ELECTRONICO -->
-                        <div class="row-md">
-                            <div class="form-floating mb-3">
-                                <input type="email" formControlName="Mail" class="form-control" id="floatingEmail" placeholder="juan@gmail.com">
-                                <label for="floatingEmail">Correo electrónico</label>
-                            </div>
-                        </div>
-                        <!-- CONTRASEÑAS -->
-                        <div class="row g-5">
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <input type="password" formControlName="Password" class="form-control" id="floatingPass" placeholder="**************">
-                                    <label for="floatingPass">Contraseña</label>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <input type="password" formControlName="ConfirmPass" class="form-control" id="floatingConfirmPass" placeholder="**************">
-                                    <label for="floatingConfirmPass">Confirmar contraseña</label>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <!-- TELEFONO -->
-                        <!-- <div class="row g-5">
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <select class="form-select" aria-label="Default select example" formControlName="Lada" id="floatingLada">
-                                        <option value="0" >Seleccine su lada</option>
-                                        <option value="+52">Mexico +52</option>
-                                        <option value="+1">Estados Unidos +1</option>
-                                        <option value="+34">España +34</option>
-                                        <option value="+54">Argentina +54</option>
-                                        <option value="+49">Alemania +49</option>
-                                        <option value="+370">Lituania +370</option>
-                                        <option value="+44">Reino Unido +44</option>
-                                    </select>
-                                    <label for="floatingLada">Lada</label>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-floating">
-                                    <input type="tel" onkeydown="return false" formControlName="Phone" class="form-control" id="floatingPhone" placeholder="########" maxlength="10" minlength="10"> 
-                                    <label for="floatingPhone">Telefono</label>
-                                </div>
-                                <span id="celHelpInline" class="form-text">
-                                    Debe tener 10 digitos.
-                                </span>  <br>
-                            </div>
-                        </div> -->
-                        <!-- BOTONES -->
-                        <div class="d-grid justify-content-center" style="cursor:pointer;">
-                            <span class="my-3">
-                                <button type="submit" class="btn btn-outline-primary w-30 align-items-center">Registrarse</button>
-                                &nbsp;
-                                <button routerLink="/login"class="btn btn-outline-dark w-30 align-items-center">Cancelar</button>
-                            </span>
-                        </div>
-                        
-                    </form>
+                </div>
+                <div class="col-md">
+                    <!-- APELLIDO -->
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="LastName" class="form-control" id="floatingLast" placeholder="Juan">
+                        <label for="floatingLast">Apellido</label>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- NOMBRE DE USUARIO -->
+            <div class="row-md">
+                <div class="form-floating mb-3">
+                    <input type="text" formControlName="Cargo" class="form-control" id="floatingUser" placeholder="Juan35">
+                    <label for="floatingUser">Puesto</label>
+                </div>
+            </div>
+            <!-- CORREO ELECTRONICO -->
+            <div class="row-md">
+                <div class="form-floating mb-3">
+                    <input type="email" formControlName="Mail" class="form-control" id="floatingEmail" placeholder="juan@gmail.com">
+                    <label for="floatingEmail">Correo electrónico</label>
+                </div>
+            </div>
+            <!-- CONTRASEÑAS -->
+            <div class="row g-5">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="password" formControlName="Password" class="form-control" id="floatingPass" placeholder="**************">
+                        <label for="floatingPass">Contraseña</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="password" formControlName="ConfirmPass" class="form-control" id="floatingConfirmPass" placeholder="**************">
+                        <label for="floatingConfirmPass">Confirmar contraseña</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- BOTONES -->
+            <div class="d-grid justify-content-center" style="cursor:pointer;">
+                <span class="my-3">
+                    <button type="submit" class="btn btn-outline-primary w-30 align-items-center">Registrarse</button>
+                    &nbsp;
+                    <button routerLink="/login"class="btn btn-outline-dark w-30 align-items-center">Cancelar</button>
+                </span>
+            </div>
+        </form>
     </div>
 </body>
