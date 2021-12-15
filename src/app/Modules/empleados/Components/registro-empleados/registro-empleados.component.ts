@@ -29,10 +29,11 @@ export class RegistroEmpleadosComponent implements OnInit
     this.registroEmpleado = this.fb.group({
       Name: ['', [Validators.required, Validators.pattern("^[a-zA-Z]*$")]],
       LastName: ['', [Validators.required, Validators.pattern("^[a-zA-Z]*$")]],
+      ID: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       Cargo: ['', [Validators.required, Validators.pattern("^[a-zA-Z]*$")]],
       Mail: ['', Validators.email],
       Password: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.-]*$")]],
-      ConfrimPass: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.-]*$")]],
+      ConfirmPass: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.-]*$")]],
     });
     this.id = Math.random() * (2000000 - 1) + 1;
     this.puesto = "";
@@ -44,7 +45,9 @@ export class RegistroEmpleadosComponent implements OnInit
 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    // 
   }
 
   nuevoEpmleado()
