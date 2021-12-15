@@ -1,4 +1,4 @@
-<body>
+<body *ngIf="llamarNewEmpl">
     <div class="container">
         <div class="col-xs-12 col-sm-6 col-md-7 mx-auto"> 
             <div class="card">
@@ -6,13 +6,13 @@
                     <!-- Encabezado -->
                     <div class="col py-3">
                         <!-- <h2 class="text-center">Conchas del mar</h2> -->
-                        <img class="logo" src="assets/Imagenes/Logo.png" alt="Concha de mar">
+                        <!-- <img class="logo" src="assets/Imagenes/Logo.png" alt="Concha de mar"> -->
                     </div>
-                    <h2>Registrar nuevo usuario</h2>
+                    <h2>Registrar nuevo empleado</h2>
                     <!-- *ngIf="Cargando" -->
-                    <div class="spinner-border text-primary float-end" role="status">
+                    <!-- <div class="spinner-border text-primary float-end" role="status">
                         <span class="visually-hidden">Loading...</span>
-                    </div>
+                    </div> -->
                     <!-- FORMULARIO -->
                     <form autocomplete="off" [formGroup]="registroEmpleado" (ngSubmit)="nuevoEpmleado()">
                         <div class="row g-5">

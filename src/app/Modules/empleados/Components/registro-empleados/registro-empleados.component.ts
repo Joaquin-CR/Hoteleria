@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -22,6 +22,7 @@ export class RegistroEmpleadosComponent implements OnInit
   contrasena: string;
   confirm_contrasena: string;
 
+  @Input() llamarNewEmpl!: boolean;
   constructor(private fb: FormBuilder,
               private router: Router) 
   { 
