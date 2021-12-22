@@ -19,6 +19,7 @@ import { MenuComponent } from './Components/menu/menu.component';
 import { LoginUsuarioComponent } from './Components/login-usuario/login-usuario.component';
 import { LoginEmpleadoComponent } from './Components/login-empleado/login-empleado.component';
 import { RegistroUsuariosComponent } from './Components/registro-usuarios/registro-usuarios.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { RegistroUsuariosComponent } from './Components/registro-usuarios/regist
     // RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [/*CookieService*/],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
