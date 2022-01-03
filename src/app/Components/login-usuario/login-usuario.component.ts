@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
+import { CookiesService } from 'src/app/Services/cookies.service';
 
 @Component({
   selector: 'app-login-usuario',
@@ -20,6 +21,7 @@ export class LoginUsuarioComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private toastr: ToastrService,
               private router: Router,
+              private _cookies: CookiesService,
               private _usuarioService: UsuariosService) 
 { 
   this.login = this.fb.group({
@@ -61,7 +63,7 @@ export class LoginUsuarioComponent implements OnInit {
           this._usuarioService.usuarioLogeado(true);
           this._usuarioService.setIdUser(idUser);
           // Se genera la cookie
-          // this._cookies.setToken(this._cookies.getRandomToken(16), this._cookies.nuevaExpiracion(1));
+          this._cookies.setToken(this._cookies.getRandomToken(16), this._cookies.nuevaExpiracion(1));
           this.toastr.success('Acceso concedido', 'Acción exitosa',
           {
             positionClass: 'toast-bottom-right'
