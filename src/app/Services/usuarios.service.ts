@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookiesService } from './cookies.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,22 @@ export class UsuariosService
   idUser!: string;
   url = "/api/";
 
-  constructor(private _http: HttpClient) 
+  constructor(private _http: HttpClient,
+              private _cookies: CookiesService) 
   {
     // 
+  }
+  sesionUsuarioActiva = false;
+
+  loginUsuario()
+  {
+    this._cookies.checkToken();
+    this.sesionUsuarioActiva = this._cookies.existenciaCookie
+  }
+
+  statusSesion()
+  {
+    return this.sesionUsuarioActiva;
   }
 
   getLiga(liga: string)

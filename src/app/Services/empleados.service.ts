@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookiesService } from './cookies.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,22 @@ export class EmpleadosService
 
   url = "/api/empleados";
 
-  constructor(private _http: HttpClient) 
+  constructor(private _http: HttpClient,
+              private _cookies: CookiesService) 
   { 
     // 
+  }
+  sesionEmpleadoActiva = false;
+
+  loginEmpleado()
+  {
+    this._cookies.checkToken();
+    this.sesionEmpleadoActiva = this._cookies.existenciaCookie
+  }
+
+  statusSesion()
+  {
+    return this.sesionEmpleadoActiva;
   }
 
   getEmpleados()
