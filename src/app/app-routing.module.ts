@@ -6,6 +6,8 @@ import { LandingPageComponent } from './Components/landing-page/landing-page.com
 import { LoginEmpleadoComponent } from './Components/login-empleado/login-empleado.component';
 import { LoginUsuarioComponent } from './Components/login-usuario/login-usuario.component';
 import { RegistroUsuariosComponent } from './Components/registro-usuarios/registro-usuarios.component';
+import { LoginEmpleadoGuard } from './Guards/login-empleado.guard';
+import { LoginUsersGuard } from './Guards/login-users.guard';
 
 const routes: Routes = [
   {
@@ -35,11 +37,13 @@ const routes: Routes = [
     children: [
       {
         path: 'empleados',
-        loadChildren: () => import('./Modules/empleados/empleados.module').then(mod => mod.EmpleadosModule)
+        loadChildren: () => import('./Modules/empleados/empleados.module').then(mod => mod.EmpleadosModule),
+        canActivate: [LoginEmpleadoGuard]
       },
       {
         path: 'usuarios',
-        loadChildren: () => import('./Modules/usuarios/usuarios.module').then(mod => mod.UsuariosModule)
+        loadChildren: () => import('./Modules/usuarios/usuarios.module').then(mod => mod.UsuariosModule),
+        canActivate: [LoginUsersGuard]
       }
     ]
   },
