@@ -21,6 +21,7 @@ import { LoginEmpleadoComponent } from './Components/login-empleado/login-emplea
 import { RegistroUsuariosComponent } from './Components/registro-usuarios/registro-usuarios.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ImagenRotaDirective } from './Directives/imagen-rota.directive';
+import { PrecioPipe } from './Pipes/precio.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ImagenRotaDirective } from './Directives/imagen-rota.directive';
     LoginUsuarioComponent,
     LoginEmpleadoComponent,
     RegistroUsuariosComponent,
-    ImagenRotaDirective
+    ImagenRotaDirective,
+    PrecioPipe
   ],
   imports: [
     CommonModule,
