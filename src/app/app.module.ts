@@ -20,6 +20,7 @@ import { LoginUsuarioComponent } from './Components/login-usuario/login-usuario.
 import { LoginEmpleadoComponent } from './Components/login-empleado/login-empleado.component';
 import { RegistroUsuariosComponent } from './Components/registro-usuarios/registro-usuarios.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ImagenRotaDirective } from './Directives/imagen-rota.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CookieService } from 'ngx-cookie-service';
     MenuComponent,
     LoginUsuarioComponent,
     LoginEmpleadoComponent,
-    RegistroUsuariosComponent
+    RegistroUsuariosComponent,
+    ImagenRotaDirective
   ],
   imports: [
     CommonModule,
