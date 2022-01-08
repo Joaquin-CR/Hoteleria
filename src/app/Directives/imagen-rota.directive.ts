@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appImagenRota]'
@@ -6,16 +6,19 @@ import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 export class ImagenRotaDirective
 {
 
+  @Input() urlCustom!: string;
+
   constructor(private elementRef: ElementRef) 
   { 
-    // 
+    //
   }
 
+  
   @HostListener('error')
   cargarImagenPorDefecto()
   {
     const elemnt = this.elementRef.nativeElement;
-    elemnt.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uia93jUhtlaNB5s9-xnmhh8tek0NsQ0BMg&usqp=CAU';
+    elemnt.src = this.urlCustom || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8uia93jUhtlaNB5s9-xnmhh8tek0NsQ0BMg&usqp=CAU';
   }
 
 }
