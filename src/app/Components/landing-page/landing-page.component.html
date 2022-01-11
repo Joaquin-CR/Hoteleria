@@ -61,16 +61,16 @@
 <main>
     <!-- HABITACIONES -->
     <div class="row text-white py-5" id="row-habitaciones">
+        <!-- SELECTOR DE TIPO DE MONEDA -->
+        <div class="ps-5">
+            <select class="form-select-padding-x" name="precios" [(ngModel)]='tipo'>
+                <option value="MXN" selected>Peso Mexicano</option>
+                <option value="USD">Dollar</option>
+                <option value="EUR">Euro</option>
+                <option value="YEN">Yen</option>
+            </select>
+        </div>
         <div class="container text-center">
-            <!-- SELECTOR DE TIPO DE MONEDA -->
-            <div>
-                <select name="precios" [(ngModel)]='tipo'>
-                    <option value="MXN" selected>Peso Mexicano</option>
-                    <option value="USD">Dollar</option>
-                    <option value="EUR">Euro</option>
-                    <option value="YEN">Yen</option>
-                </select>
-            </div>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <h1 class="font-weight-bold">Habitaciones</h1>
@@ -81,7 +81,7 @@
                 <div class="col">
                     <img appImagenRota src="assets/Imagenes/Cuarto1.jpg" alt="Cuarto 1">
                     <h3 class="font-weight-bold mt-4">Habitación Deluxe Doble</h3>
-                    <p>{{ HabitacionDueluxDoble | precio: tipo | currency: tipo | number: '.0-0' }}</p> <!--$250 dolares la noche-->
+                    <p>{{ HabitacionDueluxDoble | precio: tipo | currency: tipo }}</p> <!--$250 dolares la noche-->
                     
                 </div>
                 <div class="col">
