@@ -17,9 +17,12 @@ export class LandingPageComponent implements OnInit
   submitted = false;
   loading = false;
 
-  tipo!: string;
-  salario: number = 12000.23;
-  precio: number = 1200; 
+  tipo: string = "MXN";
+  HabitacionDueluxDoble: number = 5097.83;
+  HabitacionDueluxSencilla: number = 4078.26;
+  SuitHoney: number = 15293.48;
+  HabitacionDobleEconom: number = 3670.44;
+  
   constructor(private fb: FormBuilder,
               private _usuariosService: UsuariosService,
               private _empleadosService: EmpleadosService,
