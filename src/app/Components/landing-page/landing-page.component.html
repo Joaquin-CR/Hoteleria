@@ -62,15 +62,15 @@
     <!-- HABITACIONES -->
     <div class="row text-white py-5" id="row-habitaciones">
         <div class="container text-center">
-            <select name="precios" [(ngModel)]='tipo'>
-                <option value="MXN">Peso Mexicano</option>
-                <option value="USD">Dollar</option>
-                <option value="EUR">Euro</option>
-            </select>
-            <span>
-                <p>El valor de la variable es: {{tipo}}</p>
-            </span>
-            <!-- <button>Actualizar</button> -->
+            <!-- SELECTOR DE TIPO DE MONEDA -->
+            <div>
+                <select name="precios" [(ngModel)]='tipo'>
+                    <option value="MXN" selected>Peso Mexicano</option>
+                    <option value="USD">Dollar</option>
+                    <option value="EUR">Euro</option>
+                    <option value="YEN">Yen</option>
+                </select>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <h1 class="font-weight-bold">Habitaciones</h1>
@@ -80,24 +80,24 @@
             <div class="row mt-4">
                 <div class="col">
                     <img appImagenRota src="assets/Imagenes/Cuarto1.jpg" alt="Cuarto 1">
-                    <!-- INSERTAR LOS PIPEs TANTO PARA EL IDIOMA COMO PARA EL PRECIO -->
                     <h3 class="font-weight-bold mt-4">Habitación Deluxe Doble</h3>
-                    <p>Precio </p> <!--$250 dolares la noche-->
+                    <p>{{ HabitacionDueluxDoble | precio: tipo | currency: tipo | number: '.0-0' }}</p> <!--$250 dolares la noche-->
+                    
                 </div>
                 <div class="col">
                     <img appImagenRota src="assets/Imagenes/Cuarto2.jpg" alt="Cuarto 2">
                     <h3 class="font-weight-bold mt-4">Habitación Deluxe Sencilla</h3>
-                    <p>Precio</p> <!--$200 dolares la noche-->
+                    <p>{{ HabitacionDueluxSencilla | precio: tipo | currency: tipo }}</p> <!--$200 dolares la noche-->
                 </div>
                 <div class="col">
                     <img appImagenRota src="assets/Imagenes/Cuarto3.jpg" alt="Cuarto 3">
                     <h3 class="font-weight-bold mt-4">Suite Honeymoon</h3>
-                    <p>Precio</p> <!--$750 dolares la noche-->
+                    <p>{{ SuitHoney | precio: tipo | currency: tipo }}</p> <!--$750 dolares la noche-->
                 </div>
                 <div class="col">
                     <img appImagenRota src="assets/Imagenes/Cuarto4.jpg" alt="Cuarto 4">
                     <h3 class="font-weight-bold mt-4">Habitación Doble Exonómimca</h3>
-                    <p>Precio</p> <!--$200 dolares la noche-->
+                    <p>{{ HabitacionDobleEconom | precio: tipo | currency: tipo }}</p> <!--$180 dolares la noche-->
                 </div>
             </div>
         </div>
@@ -205,7 +205,4 @@
             </section>
         </div>
     </footer>
-    <td>{{ salario | currency: tipo }}</td> <br>
-    <td>{{ precio | precio: tipo }}</td> <br>
-
 </main>
