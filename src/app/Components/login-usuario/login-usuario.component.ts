@@ -60,7 +60,6 @@ export class LoginUsuarioComponent implements OnInit {
         let pass = usuario[0]['password_user'];
         if(pass == this.contra)
         {
-          this._usuarioService.usuarioLogeado(true);
           this._usuarioService.setIdUser(idUser);
           // Se genera la cookie
           this._cookies.setToken(this._cookies.getRandomToken(16), this._cookies.nuevaExpiracion(1));
