@@ -17,6 +17,7 @@ export class LandingPageComponent implements OnInit
   submitted = false;
   loading = false;
 
+  idUser!: number;
   tipo: string = "MXN";
   HabitacionDueluxDoble: number = 5097.83;
   HabitacionDueluxSencilla: number = 4078.26;
@@ -63,11 +64,13 @@ export class LandingPageComponent implements OnInit
     let idReservacion = ""+generateRandomString();
     if(this._cookies.checkToken())
     {
+      this.idUser = +this._usuariosService.getIdUsuario();
+      console.log(this.idUser);
       console.log(this.nuevoRegistro);
       const nuevaRes: Reservacion = 
       {
         idRes: idReservacion,
-        idUser: 1999,
+        idUser: this.idUser,
         fecIn: this.nuevoRegistro.value.fecIn,
         fecOut: this.nuevoRegistro.value.fecOut,
         numA: this.nuevoRegistro.value.NumA,
@@ -81,6 +84,19 @@ export class LandingPageComponent implements OnInit
       },
         err => console.log(err)
       )
+    }
+    else
+    {
+       const nuevaRes: Reservacion = 
+      {
+        idRes: idReservacion,
+        idUser: 1999,
+        fecIn: this.nuevoRegistro.value.fecIn,
+        fecOut: this.nuevoRegistro.value.fecOut,
+        numA: this.nuevoRegistro.value.NumA,
+        numN: this.nuevoRegistro.value.NumN,
+        numC: this.nuevoRegistro.value.NumC,
+      }
     }
   }
 
