@@ -8,7 +8,7 @@ import { CookiesService } from './cookies.service';
 export class UsuariosService 
 {
 
-  logeado!: boolean;
+  sesionUsuarioActiva = false;
   userName!: string;
   idUser!: string;
   url = "/api/";
@@ -18,7 +18,6 @@ export class UsuariosService
   {
     // 
   }
-  sesionUsuarioActiva = false;
 
   loginUsuario()
   {
@@ -79,11 +78,6 @@ export class UsuariosService
     return this._http.put(this.url+'/'+id, usuario);
   }
 
-  usuarioLogeado(logeado: boolean)
-  {
-    this.logeado = logeado;
-  }
-
   setUsuarioLogeado(user: string)
   {
     this.idUser = user;
@@ -97,11 +91,6 @@ export class UsuariosService
   getUserName()
   {
     return this.userName;
-  }
-
-  getStatusLogeado()
-  {
-    return this.logeado;
   }
 
 }
