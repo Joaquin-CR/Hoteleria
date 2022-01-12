@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookiesService } from 'src/app/Services/cookies.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 
 @Component({
@@ -10,20 +11,24 @@ import { UsuariosService } from 'src/app/Services/usuarios.service';
 export class MenuComponent implements OnInit 
 {
 
-  logeado: boolean = this._usuarioService.logeado 
+  logeado!: boolean; 
   constructor(private _usuarioService: UsuariosService,
+              private _cookies: CookiesService,
               private router: Router,) 
   { 
     // 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.logeado = this._usuarioService.statusSesion();
   }
 
   cerrarSesion()
   {
-    this._usuarioService.usuarioLogeado(false);
-    this.router.navigate(['/landingpage']);
+    this._cookies.Logout();
+    this._usuarioService.loginUsuario;
+    // this.router.navigate(['/landingpage']);
   }
 
 }
