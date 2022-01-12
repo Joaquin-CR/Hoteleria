@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookiesService } from 'src/app/Services/cookies.service';
+import { EmpleadosService } from 'src/app/Services/empleados.service';
 
 @Component({
   selector: 'app-empleados',
@@ -16,7 +18,9 @@ export class EmpleadosComponent implements OnInit {
   btnNewEmpleado: boolean = true;
   btnGestionEmpleado: boolean = true;
 
-  constructor(private router: Router,) 
+  constructor(private router: Router,
+              private _cookies: CookiesService,
+              private _empleadoService: EmpleadosService) 
   { 
     // 
   }
@@ -59,7 +63,9 @@ export class EmpleadosComponent implements OnInit {
 
   logout()
   {
-    this.router.navigate(['/landing']);
+    this._cookies.Logout();
+    this._empleadoService.loginEmpleado;
+    // this.router.navigate(['/landing']);
   }
 
 }

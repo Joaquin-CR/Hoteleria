@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { ToastrService } from 'ngx-toastr';
+import { CookiesService } from 'src/app/Services/cookies.service';
+import { UsuariosService } from 'src/app/Services/usuarios.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -16,7 +19,10 @@ export class UsuariosComponent implements OnInit
   btnMiRes: boolean = false;
   btnNewRes: boolean = true;
   btnConfig: boolean = true;
-  constructor(private router: Router,) 
+  constructor(private router: Router,
+              private _cookies: CookiesService,
+              // private toastr: ToastrService,
+              private _userService: UsuariosService) 
   { 
     // 
   }
@@ -61,7 +67,9 @@ export class UsuariosComponent implements OnInit
 
   logout()
   {
-    this.router.navigate(['/landing']);
+    this._cookies.Logout();
+    this._userService.loginUsuario();
+    // this.router.navigate(['/landing']);
   }
 
 }
