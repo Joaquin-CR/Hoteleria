@@ -45,11 +45,6 @@ export class UsuariosService
     this.userName = usuario;
   }
 
-  setIdUser(id: string)
-  {
-    this.idUser = id;
-  }
-
   getUsuarios()
   {
     return this._http.get(this.url);
@@ -78,9 +73,9 @@ export class UsuariosService
     return this._http.put(this.url+'/'+id, usuario);
   }
 
-  setUsuarioLogeado(user: string)
+  setIdUser(id: string)
   {
-    this.idUser = user;
+    this.idUser = id;
   }
 
   getIdUsuario()
