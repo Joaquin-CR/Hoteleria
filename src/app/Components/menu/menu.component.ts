@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.logeado = this._usuarioService.statusSesion();
+    // 
   }
 
   cerrarSesion()
@@ -29,6 +29,14 @@ export class MenuComponent implements OnInit
     this._cookies.Logout();
     this._usuarioService.loginUsuario;
     // this.router.navigate(['/landingpage']);
+  }
+
+  // CHECAR ESTA PARTE DEL MENU EL PORQUE NO QUIERE JALAR
+  checkUsuario()
+  {
+    this.logeado = this._usuarioService.statusSesion();
+    console.log(this.logeado);
+    this.router.navigate(['/usuarios']);
   }
 
 }
