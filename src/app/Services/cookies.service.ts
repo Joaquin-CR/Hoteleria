@@ -43,12 +43,12 @@ export class CookiesService
   Logout()
   {
     // console.log('Borrando');
-
-    //SE DEBE CHECAR EN QUE PARTE DE LA PÁGUINA ESTA PARA REDIRECCIONARLA
-    this.router.navigate(['/landing']);
-    /********************************** */
-
     this._cookies.delete("token", "/");
+    this.toastr.info('Usted a cerrado sesion', 'Cerrar sesion',
+    {
+      positionClass: 'toast-bottom-right'
+    });
+    this.router.navigate(['/landing']);
   }
 
   nuevaExpiracion(minutos: number)
