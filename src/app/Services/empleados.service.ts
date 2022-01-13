@@ -17,9 +17,9 @@ export class EmpleadosService
   }
   sesionEmpleadoActiva = false;
 
-  loginEmpleado()
+  loginEmpleado(btnCerrarSesion: boolean)
   {
-    this._cookies.checkToken();
+    this._cookies.checkToken(btnCerrarSesion);
     this.sesionEmpleadoActiva = this._cookies.existenciaCookie
   }
 

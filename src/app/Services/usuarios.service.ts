@@ -19,9 +19,9 @@ export class UsuariosService
     // 
   }
 
-  loginUsuario()
+  loginUsuario(btnCerrarSesion: boolean)
   {
-    this._cookies.checkToken();
+    this._cookies.checkToken(btnCerrarSesion);
     this.sesionUsuarioActiva = this._cookies.existenciaCookie
   }
 

@@ -56,24 +56,38 @@ export class CookiesService
     return (1/1440)*minutos;
   }
 
-  checkToken()
+  checkToken(btnCerrarSesion: boolean)
   {
     let cookie = this.getToken();
-    if(!cookie)
+    if(btnCerrarSesion)
     {
-      this.Logout();
-      // CHECAR PARA CUANDO SE HAGA UNA RESERVACION DESDE LA LANDINGPAGE
-      this.toastr.warning('Favor de iniciar sesion antes de ejecutar cualquier acción', 'ADVERTENCIA',
-          {
-            positionClass: 'toast-bottom-right'
-          });
-      this.existenciaCookie = false;
+      if(!cookie)
+      {
+        this.toastr.warning('Favor de iniciar sesion antes de ejecutar cualquier acción', 'ADVERTENCIA',
+            {
+              positionClass: 'toast-bottom-right'
+            });
+        this.existenciaCookie = false;
+      }
     }
     else
     {
-      this.setToken(this.getToken(), this.nuevaExpiracion(2));
-      // console.log("Token renovado");
-      this.existenciaCookie = true;
+      if(!cookie)
+      {
+        this.Logout();
+        // CHECAR PARA CUANDO SE HAGA UNA RESERVACION DESDE LA LANDINGPAGE
+        this.toastr.warning('Favor de iniciar sesion antes de ejecutar cualquier acción', 'ADVERTENCIA',
+            {
+              positionClass: 'toast-bottom-right'
+            });
+        this.existenciaCookie = false;
+      }
+      else
+      {
+        this.setToken(this.getToken(), this.nuevaExpiracion(2));
+        // console.log("Token renovado");
+        this.existenciaCookie = true;
+      }
     }
     return cookie;
   }

@@ -64,7 +64,7 @@ export class EmpleadosComponent implements OnInit {
   logout()
   {
     this._cookies.Logout();
-    this._empleadoService.loginEmpleado;
+    this._empleadoService.loginEmpleado(true);
     // this.router.navigate(['/landing']);
   }
 

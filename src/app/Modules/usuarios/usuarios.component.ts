@@ -68,7 +68,7 @@ export class UsuariosComponent implements OnInit
   logout()
   {
     this._cookies.Logout();
-    this._userService.loginUsuario();
+    this._userService.loginUsuario(true);
     // this.router.navigate(['/landing']);
   }
 

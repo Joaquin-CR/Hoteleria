@@ -64,7 +64,7 @@ export class LoginUsuarioComponent implements OnInit {
           console.log(this._usuarioService.getIdUsuario);
           // Se genera la cookie
           this._cookies.setToken(this._cookies.getRandomToken(16), this._cookies.nuevaExpiracion(1));
-          this._usuarioService.loginUsuario();
+          this._usuarioService.loginUsuario(false);
           this.toastr.success('Acceso concedido', 'Acción exitosa',
           {
             positionClass: 'toast-bottom-right'
