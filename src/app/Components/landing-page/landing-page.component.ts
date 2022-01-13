@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CookiesService } from 'src/app/Services/cookies.service';
 import { EmpleadosService } from 'src/app/Services/empleados.service';
-import { Reservacion, ReservacionesService } from 'src/app/Services/reservaciones.service';
+import { Reservacion, ReservacionesService, reservacionPendiente } from 'src/app/Services/reservaciones.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 // import { CookiesService } from 'src/app/Services/cookies-s.service';
 
@@ -57,12 +57,11 @@ export class LandingPageComponent implements OnInit
       for ( let i = 0; i < 7; i++ ) {
           result1 += characters.charAt(Math.floor(Math.random() * charactersLength));
       }
-  
       return result1;
     }
 
     let idReservacion = ""+generateRandomString();
-    if(this._cookies.checkToken())
+    if(this._cookies.checkToken(false))
     {
       this.idUser = +this._usuariosService.getIdUsuario();
       console.log(this.idUser);
@@ -87,16 +86,17 @@ export class LandingPageComponent implements OnInit
     }
     else
     {
-       const nuevaRes: Reservacion = 
+      this._reservacionesService.setStatusRes(true);
+      const pendienteRes: reservacionPendiente = 
       {
         idRes: idReservacion,
-        idUser: 1999,
         fecIn: this.nuevoRegistro.value.fecIn,
         fecOut: this.nuevoRegistro.value.fecOut,
         numA: this.nuevoRegistro.value.NumA,
         numN: this.nuevoRegistro.value.NumN,
         numC: this.nuevoRegistro.value.NumC,
       }
+      this._reservacionesService.reservacionPendiente(pendienteRes);
     }
   }
 
