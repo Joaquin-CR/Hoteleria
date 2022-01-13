@@ -22,6 +22,7 @@ import { RegistroUsuariosComponent } from './Components/registro-usuarios/regist
 import { CookieService } from 'ngx-cookie-service';
 import { ImagenRotaDirective } from './Directives/imagen-rota.directive';
 import { PrecioPipe } from './Pipes/precio.pipe';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PrecioPipe } from './Pipes/precio.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot({}), //mensaje: miReducer
     // RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot(), // ToastrModule added
   ],
