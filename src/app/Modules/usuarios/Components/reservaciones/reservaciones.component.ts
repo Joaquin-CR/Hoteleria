@@ -10,7 +10,7 @@ import { UsuariosService } from 'src/app/Services/usuarios.service';
 })
 export class ReservacionesComponent implements OnInit {
 
-  idUser!: string;
+  idUser!: number;
   res!: any[][];
 
   @Input() llamarMiRes!: boolean;
