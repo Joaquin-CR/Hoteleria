@@ -14,13 +14,13 @@ export class RegistroEmpleadosComponent implements OnInit
   submitted = false;
   loading = false;
 
-  id: number;
-  puesto: string;
-  nombre: string;
-  apellido: string;
-  correo: string;
-  contrasena: string;
-  confirm_contrasena: string;
+  id!: number;
+  puesto!: string;
+  nombre!: string;
+  apellido!: string;
+  correo!: string;
+  contrasena!: string;
+  confirm_contrasena!: string;
 
   @Input() llamarNewEmpl!: boolean;
   constructor(private fb: FormBuilder,
@@ -35,24 +35,34 @@ export class RegistroEmpleadosComponent implements OnInit
       Password: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.-]*$")]],
       ConfirmPass: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.-]*$")]],
     });
-    this.id = Math.random() * (2000000 - 1) + 1;
-    this.puesto = "";
-    this.nombre = "";
-    this.apellido = "";
-    this.correo = "";
-    this.contrasena = "";
-    this.confirm_contrasena = "";
-
   }
 
   ngOnInit(): void 
   {
-    // 
+    this.id = this.random();
+    this.mostrarDatos(); 
   }
 
   nuevoEpmleado()
   {
-    // 
+    this.loading = true;
+    
+    //
+    this.loading = false;
+    this.id = this.random();
+    this.mostrarDatos(); 
+  }
+
+  random() 
+  {
+    return Math.floor((Math.random() * (2000000 - 1000000 + 1)) + 1000000);
+  }
+
+  mostrarDatos()
+  {
+    this.registroEmpleado.setValue({
+      ID: this.id,
+    });
   }
 
 }
