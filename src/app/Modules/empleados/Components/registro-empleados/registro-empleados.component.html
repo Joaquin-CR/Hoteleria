@@ -1,10 +1,12 @@
 <body *ngIf="llamarNewEmpl">
-    <div class="text-center">
-        <h2>Registrar nuevo empleado</h2>
-        <!-- *ngIf="Cargando" -->
-        <!-- <div class="spinner-border text-primary float-end" role="status">
+    <div>
+        <div class="text-center">
+            <h2>Registrar nuevo empleado</h2>
+        </div>
+        
+        <div *ngIf="loading" class="spinner-border text-primary float-end" role="status">
             <span class="visually-hidden">Loading...</span>
-        </div> -->
+        </div>
         <!-- FORMULARIO -->
         <form autocomplete="off" [formGroup]="registroEmpleado" (ngSubmit)="nuevoEpmleado()">
             <div class="row">
@@ -23,15 +25,18 @@
                     </div>
                 </div>
             </div>
-            <!-- Puesto -->
             <div class="row">
-                <div class="col-md">
+                <!-- ID -->
+                <div class="col-md text-start">
+                    <label for="floatingID">ID</label><br>
                     <div class="form-floating mb-3">
-                        <input type="text" formControlName="ID" class="form-control" id="floatingID" placeholder="12428">
-                        <label for="floatingID">ID</label>
+                        <input type="text" class="form-control" id="floatingID" placeholder="12428" disabled>
+                        <label for="floatingID">{{id}}</label>
                     </div>
                 </div>
+                <!-- PUESTO -->
                 <div class="col-md">
+                    <br>
                     <div class="form-floating mb-3">
                         <input type="text" formControlName="Cargo" class="form-control" id="floatingUser" placeholder="Juan35">
                         <label for="floatingUser">Puesto</label>
@@ -65,8 +70,8 @@
             <div class="d-grid justify-content-center" style="cursor:pointer;">
                 <span class="my-3">
                     <button type="submit" class="btn btn-outline-primary w-30 align-items-center">Registrarse</button>
-                    &nbsp;
-                    <button routerLink="/login"class="btn btn-outline-dark w-30 align-items-center">Cancelar</button>
+                    <!-- &nbsp; -->
+                    <!-- <button routerLink="/login"class="btn btn-outline-dark w-30 align-items-center">Cancelar</button> -->
                 </span>
             </div>
         </form>
