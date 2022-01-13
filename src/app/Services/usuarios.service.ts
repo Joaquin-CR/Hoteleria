@@ -10,7 +10,7 @@ export class UsuariosService
 
   sesionUsuarioActiva = false;
   userName!: string;
-  idUser!: string;
+  idUser: number = 0;
   url = "/api/";
 
   constructor(private _http: HttpClient,
@@ -50,20 +50,20 @@ export class UsuariosService
     return this._http.get(this.url);
   }
 
-  addUsuario(usuario: Usuario) //Mete los valores que se encuentran en el export de Reservaciones
+  addUsuario(usuario: Usuario) //METE LOS VALORES DEL OBJETO QUE SIGUE EL PATRON DE LA INTERFAZ EXPORTADA DE USUARIO
   {
     // console.log("Reservacion agregada");
     return this._http.post(this.url+'/', usuario);
   }
 
-  getUsuario(userName:string)
+  getUsuario(userName: string)
   {
     let user = this._http.get(this.url+'/'+userName);
     this.setDeafault();
     return user;
   }
 
-  deleteUsuario(userName:string)
+  deleteUsuario(userName: string)
   {
     return this._http.delete(this.url+'/'+userName);
   }
@@ -73,14 +73,14 @@ export class UsuariosService
     return this._http.put(this.url+'/'+id, usuario);
   }
 
-  setIdUser(id: string)
+  setIdUser(id: number)
   {
     this.idUser = id;
   }
 
   getIdUsuario()
   {
-    return this.idUser
+    return this.idUser;
   }
 
   getUserName()
