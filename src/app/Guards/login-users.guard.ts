@@ -9,6 +9,8 @@ import { UsuariosService } from '../Services/usuarios.service';
 })
 export class LoginUsersGuard implements CanActivate {
 
+  cookieVigente!: boolean;
+
   constructor(private router: Router,
                 private _userService: UsuariosService,
                 private toastr: ToastrService,)
@@ -30,9 +32,9 @@ export class LoginUsersGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let cookieVigente = this._userService.statusSesion();
-      this.redirect(cookieVigente);
-    return cookieVigente;
+      this.cookieVigente = this._userService.statusSesion();
+      this.redirect(this.cookieVigente);
+    return this.cookieVigente;
   }
   
 }
