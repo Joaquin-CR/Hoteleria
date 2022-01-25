@@ -21,31 +21,31 @@
                             <div class="row g-5">
                                 <div class="col-md">
                                     <div class="form-floating mb-3">
-                                        <input type="date" onkeydown="return false" formControlName="fecIn" class="form-control" placeholder="Dia de entrada" id="floatingDiaE"> <!--bsDatepicker [bsConfig]="{dateInputForm}"-->
+                                        <input type="date" onkeydown="return false" formControlName="fecIn" class="form-control" placeholder="Dia de entrada" id="floatingDiaE" required > <!--bsDatepicker [bsConfig]="{dateInputForm}"-->
                                         <label for="floatingDiaE">Dia de entrada</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating">
-                                        <input type="date" onkeydown="return false" formControlName="fecOut" class="form-control" placeholder="Dia de salida" id="floatingDiaS"> <!--bsDatepicker-->
+                                        <input type="date" onkeydown="return false" formControlName="fecOut" class="form-control" placeholder="Dia de salida" id="floatingDiaS" required > <!--bsDatepicker-->
                                         <label for="floatingDiaS">Dia de salida</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating mb-3">
-                                        <input type="number" onkeydown="return false" formControlName="NumA" onkeydown="" value="1" class="form-control" id="floatingAdulto" placeholder="1" min="1" max="20">
+                                        <input type="number" onkeydown="return false" formControlName="NumA" onkeydown="" value="1" class="form-control" id="floatingAdulto" placeholder="1" min="1" max="20" required >
                                         <label for="floatingAdulto">Adultos</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating">
-                                        <input type="number" onkeydown="return false" formControlName="NumN" value="0" class="form-control" id="floatingNino" placeholder="0" min="0" max="20">
+                                        <input type="number" onkeydown="return false" formControlName="NumN" value="0" class="form-control" id="floatingNino" placeholder="0" min="0" max="20" required >
                                         <label for="floatingNino">Niños</label>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating mb-3">
-                                        <input type="number" onkeydown="return false" formControlName="NumC" value="1" class="form-control" id="floatingCuarto" placeholder="1" min="1" max="15">
+                                        <input type="number" onkeydown="return false" formControlName="NumC" class="form-control" id="floatingCuarto" placeholder="1" min="1" max="15">
                                         <label for="floatingCuarto">Cuartos</label>
                                     </div>
                                 </div>
