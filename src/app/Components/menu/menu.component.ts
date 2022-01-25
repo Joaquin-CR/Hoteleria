@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookiesService } from 'src/app/Services/cookies.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 
 @Component({
@@ -13,7 +12,6 @@ export class MenuComponent implements OnInit
 
   logeado!: boolean; 
   constructor(private _usuarioService: UsuariosService,
-              private _cookies: CookiesService,
               private router: Router,) 
   { 
     // 
@@ -22,13 +20,6 @@ export class MenuComponent implements OnInit
   ngOnInit(): void 
   {
     // 
-  }
-
-  cerrarSesion()
-  {
-    this._cookies.Logout();
-    this._usuarioService.loginUsuario;
-    // this.router.navigate(['/landingpage']);
   }
 
   // CHECAR ESTA PARTE DEL MENU EL PORQUE NO QUIERE JALAR
