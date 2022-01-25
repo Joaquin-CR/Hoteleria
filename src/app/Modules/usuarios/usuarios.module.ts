@@ -22,7 +22,7 @@ import { NuevaResComponent } from './Components/nueva-res/nueva-res.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
   ]
 })
 export class UsuariosModule { }
