@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { CookiesService } from 'src/app/Services/cookies.service';
+import { ReservacionesService } from 'src/app/Services/reservaciones.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 
 @Component({
@@ -12,6 +13,7 @@ import { UsuariosService } from 'src/app/Services/usuarios.service';
 export class UsuariosComponent implements OnInit 
 {
 
+  idUser!: number;
   llamarReservaccion: boolean = true;
   llamarNuevaRes: boolean = false;
   llamarConfig: boolean = false;
@@ -21,15 +23,32 @@ export class UsuariosComponent implements OnInit
   btnConfig: boolean = true;
   constructor(private router: Router,
               private _cookies: CookiesService,
-              // private toastr: ToastrService,
-              private _userService: UsuariosService) 
+              private toastr: ToastrService,
+              private _userService: UsuariosService,
+              private _reservacion: ReservacionesService) 
   { 
     // 
   }
 
   ngOnInit(): void 
   {
-    // 
+    this.setIdUser();
+
+    let status = this._reservacion.getStatusRes;
+
+    console.log(status);
+    let vari = this._reservacion.reservacionPendiente;
+    console.log(vari);
+  }
+
+  ngOnDestroy(): void
+  {
+    this._userService.setIdUser(this.idUser);
+  }
+
+  setIdUser()
+  {
+    this.idUser = this._userService.getIdUsuario();
   }
 
   activarReservaciones()
