@@ -26,7 +26,6 @@ export class MenuComponent implements OnInit
   checkUsuario()
   {
     this.logeado = this._usuarioService.statusSesion();
-    console.log(this.logeado);
     this.router.navigate(['/usuarios']);
   }
 
