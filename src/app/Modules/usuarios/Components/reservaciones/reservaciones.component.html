@@ -1,5 +1,5 @@
 <div *ngIf="llamarMiRes" class="miReservacionComp">
-    <button (click)="getReservaciones()">prueba</button> <br>
+    <!-- <button (click)="getReservaciones()">prueba</button> <br> -->
     <table class="table table-dark table-hover bg-dark text-center">
         <thead>
             <td class="col">Id de reservación</td>
@@ -11,14 +11,17 @@
         </thead>
         <tbody>
             <!-- *ngFor="let reserv of res, let i = index" -->
-            <tr class="text">
-                <td class="col">1</td>
-                <td class="col">2</td>
-                <td class="col">3</td>
-                <td class="col">4</td>
-                <td class="col">5</td>
-                <td class="col">6</td>
+            <tr class="text" *ngFor="let reserv of datosReservacion, let i = index">
+                <td class="col">{{ reserv.idRes }}</td>
+                <td class="col">{{ reserv.fecIn }}</td>
+                <td class="col">{{ reserv.fecOut }}</td>
+                <td class="col">{{ reserv.numA }}</td>
+                <td class="col">{{ reserv.numN }}</td>
+                <td class="col">{{ reserv.numC }}</td>
             </tr>
         </tbody>
     </table>
+    <div *ngIf="nota" class="text-center">
+        <h3>No se tienen reservaciones</h3>
+    </div>
 </div>
