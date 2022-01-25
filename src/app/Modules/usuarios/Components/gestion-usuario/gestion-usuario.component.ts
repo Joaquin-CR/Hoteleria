@@ -15,15 +15,15 @@ export class GestionUsuarioComponent implements OnInit {
   editar = false;
   newPass = false;
 
-  idUser: string = "1";
-  nombre: string = "Joaquin";
-  apellido: string = "Carreño";
-  nombreUser: string = "JJ";
+  idUser!: number;
+  nombre!: string;
+  apellido!: string;
+  nombreUser!: string;
   newUserN!: string;
-  correo: string = "joaquin@gmail.com";
-  lada: string = "+52";
-  phone: string = "2228634123";
-  telefono: string = "+522228634123";
+  correo!: string;
+  lada!: string;
+  phone!: string;
+  telefono!: string;
 
   @Input() llamarConfigUser!: boolean;
   constructor(private fb: FormBuilder,
@@ -46,7 +46,21 @@ export class GestionUsuarioComponent implements OnInit {
     // this.llamarConfigUser = true;
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.setIdUser();
+    this.setUserName();
+  }
+
+
+  setUserName()
+  {
+    this.nombreUser = this._usuarioService.getUserName();
+  }
+
+  setIdUser()
+  {
+    this.idUser = this._usuarioService.getIdUsuario();
   }
 
   getInfUser()

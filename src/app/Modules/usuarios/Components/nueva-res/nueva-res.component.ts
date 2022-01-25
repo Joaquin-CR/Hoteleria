@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Reservacion, ReservacionesService } from 'src/app/Services/reservaciones.service';
+import { UsuariosService } from 'src/app/Services/usuarios.service';
 
 @Component({
   selector: 'app-nueva-res',
@@ -9,9 +13,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class NuevaResComponent implements OnInit {
 
   nuevoRegistro: FormGroup;
+  idUser!: number;
 
   @Input() llamarNewRes!: boolean;
-  constructor(private fb: FormBuilder,) 
+  constructor(private fb: FormBuilder,
+              private toastr: ToastrService,
+              private _registroService: ReservacionesService,
+              private router: Router,
+              private _usuarioService: UsuariosService) 
   { 
     this.nuevoRegistro = this.fb.group({
       fecIn: ['', [Validators.required, Validators.pattern("^[0-9-]*$")]],
@@ -22,7 +31,14 @@ export class NuevaResComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.setIdUser();
+  }
+
+  setIdUser()
+  {
+    this.idUser = this._usuarioService.getIdUsuario();
   }
 
   agregarRegistro()
@@ -39,16 +55,22 @@ export class NuevaResComponent implements OnInit {
     }
 
     let idReservacion = ""+generateRandomString();
-    // const nuevaRes: Reservacion = 
-    //   {
-    //     idRes: idReservacion,
-    //     idUser: 1999,
-    //     fecIn: this.nuevoRegistro.value.fecIn,
-    //     fecOut: this.nuevoRegistro.value.fecOut,
-    //     numA: this.nuevoRegistro.value.NumA,
-    //     numN: this.nuevoRegistro.value.NumN,
-    //     numC: this.nuevoRegistro.value.NumC,
-    //   }
-    //   this._registroService.addReservacion(nuevaRes).subscribe();
+    const nuevaRes: Reservacion = 
+    {
+      idRes: idReservacion,
+      idUser: this.idUser,
+      fecIn: this.nuevoRegistro.value.fecIn,
+      fecOut: this.nuevoRegistro.value.fecOut,
+      numA: this.nuevoRegistro.value.NumA,
+      numN: this.nuevoRegistro.value.NumN,
+      numC: this.nuevoRegistro.value.NumC,
+    }
+    this._registroService.addReservacion(nuevaRes).subscribe();
+
+    this.toastr.success('Reservción realizada exitosamente', 'Acción exitosa',
+    {
+      positionClass: 'toast-bottom-right'
+    });
+    this.router.navigate(['/landing']);
   }
 }

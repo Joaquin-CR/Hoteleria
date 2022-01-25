@@ -43,7 +43,6 @@ export class UsuariosComponent implements OnInit
 
   ngOnDestroy(): void
   {
-    console.log("entro");
     this._userService.setIdUser(this.idUser);
   }
 

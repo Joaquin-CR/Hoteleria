@@ -35,7 +35,6 @@ export class ReservacionesComponent implements OnInit
   ngOnInit(): void 
   {
     this.setIdUser();
-    console.log(this.idUser);
     this.id = this.idUser.toString();
     this.getReservaciones(this.id);
   }

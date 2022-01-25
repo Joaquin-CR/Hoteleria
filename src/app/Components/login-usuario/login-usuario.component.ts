@@ -70,6 +70,7 @@ export class LoginUsuarioComponent implements OnInit {
             positionClass: 'toast-bottom-right'
           });
           // Se redirecciona de nuevo a la pagina del usuario
+          this._usuarioService.setUserName(this.userName);
           this.router.navigate(['/usuarios']);
         }
         else

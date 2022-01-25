@@ -32,7 +32,6 @@ export class ReservacionesService {
 
   obtenerMiReservacion(id: string)
   {
-    console.log(id);
     return this._http.get("/api/mireservacion/"+id);
   }
 
@@ -82,6 +81,19 @@ export interface Reservacion
   numA: number;
   numN: number;
   numC: number;
+}
+
+export interface ReservacionCheck
+{
+  idRes: string;
+  idUser: number;
+  fecRes: string;
+  fecIn: string;
+  fecOut: string;
+  numA: number;
+  numN: number;
+  numC: number;
+  statusRes: number;
 }
 
 export interface reservacionPendiente
