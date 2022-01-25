@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CookiesService } from 'src/app/Services/cookies.service';
 import { EmpleadosService } from 'src/app/Services/empleados.service';
 import { Reservacion, ReservacionesService, reservacionPendiente } from 'src/app/Services/reservaciones.service';
@@ -28,8 +30,9 @@ export class LandingPageComponent implements OnInit
               private _usuariosService: UsuariosService,
               private _empleadosService: EmpleadosService,
               private _reservacionesService: ReservacionesService,
-              private _cookies: CookiesService,
-              ) 
+              private router: Router,
+              private toastr: ToastrService,
+              private _cookies: CookiesService,) 
   { 
     this.nuevoRegistro = this.fb.group({
       fecIn: ['', [Validators.required, Validators.pattern("^[0-9-]*$")]],
@@ -42,14 +45,27 @@ export class LandingPageComponent implements OnInit
 
   ngOnInit(): void 
   {
-    //
+    this.setIdUser();
+  }
+
+  setIdUser()
+  {
+    this.idUser = this._usuariosService.getIdUsuario();
   }
 
   agregarRegistro()
   {
     this.loading = true;
     this.submitted = true;
-
+    let inicioSesion = false;
+    if(this.idUser > 0)
+    {
+      inicioSesion = true
+    }
+    else
+    {
+      inicioSesion = false;
+    }
     const  generateRandomString = () => {
       const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       let result1= ' ';
@@ -61,42 +77,57 @@ export class LandingPageComponent implements OnInit
     }
 
     let idReservacion = ""+generateRandomString();
-    if(this._cookies.checkToken(false))
+    if(this.nuevoRegistro.value.NumC == 0 || this.nuevoRegistro.value.NumA == 0 || this.nuevoRegistro.value.fecIn == 0 || this.nuevoRegistro.value.fecOut == 0)
     {
-      this.idUser = +this._usuariosService.getIdUsuario();
-      console.log(this.idUser);
-      console.log(this.nuevoRegistro);
-      const nuevaRes: Reservacion = 
+      this.toastr.warning('Todos los campos son obligatorios', 'Ateción',
       {
-        idRes: idReservacion,
-        idUser: this.idUser,
-        fecIn: this.nuevoRegistro.value.fecIn,
-        fecOut: this.nuevoRegistro.value.fecOut,
-        numA: this.nuevoRegistro.value.NumA,
-        numN: this.nuevoRegistro.value.NumN,
-        numC: this.nuevoRegistro.value.NumC,
-      }
-      this._reservacionesService.addReservacion(nuevaRes).subscribe();
-      
-      this._reservacionesService.getReservaciones().subscribe(res =>{
-        console.log(res)
-      },
-        err => console.log(err)
-      )
+        positionClass: 'toast-bottom-right'
+      });
     }
     else
     {
-      this._reservacionesService.setStatusRes(true);
-      const pendienteRes: reservacionPendiente = 
+      if(this._cookies.checkToken(inicioSesion))
       {
-        idRes: idReservacion,
-        fecIn: this.nuevoRegistro.value.fecIn,
-        fecOut: this.nuevoRegistro.value.fecOut,
-        numA: this.nuevoRegistro.value.NumA,
-        numN: this.nuevoRegistro.value.NumN,
-        numC: this.nuevoRegistro.value.NumC,
+        console.log(this.nuevoRegistro);
+        const nuevaRes: Reservacion = 
+        {
+          idRes: idReservacion,
+          idUser: this.idUser,
+          fecIn: this.nuevoRegistro.value.fecIn,
+          fecOut: this.nuevoRegistro.value.fecOut,
+          numA: this.nuevoRegistro.value.NumA,
+          numN: this.nuevoRegistro.value.NumN,
+          numC: this.nuevoRegistro.value.NumC,
+        }
+        this._reservacionesService.addReservacion(nuevaRes).subscribe();
+        
+        this._reservacionesService.getReservaciones().subscribe(res =>{
+          console.log(res)
+        },
+          err => console.log(err)
+        );
+        this._reservacionesService.setStatusRes(false);
+        this.toastr.success('Reservción realizada exitosamente', 'Acción exitosa',
+        {
+          positionClass: 'toast-bottom-right'
+        });
+        this.router.navigate(['/usuarios']);
       }
-      this._reservacionesService.reservacionPendiente(pendienteRes);
+      else
+      {
+        this._reservacionesService.setStatusRes(true);
+        const pendienteRes: reservacionPendiente = 
+        {
+          idRes: idReservacion,
+          fecIn: this.nuevoRegistro.value.fecIn,
+          fecOut: this.nuevoRegistro.value.fecOut,
+          numA: this.nuevoRegistro.value.NumA,
+          numN: this.nuevoRegistro.value.NumN,
+          numC: this.nuevoRegistro.value.NumC,
+        }
+        this._reservacionesService.reservacionPendiente(pendienteRes);
+        this.router.navigate(['/login']);
+      }
     }
   }
 
