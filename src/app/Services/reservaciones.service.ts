@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ReservacionesService {
 
   url = "/api/reservacion";
@@ -29,8 +30,9 @@ export class ReservacionesService {
     return this._http.post(this.url+'/', reservacion);
   }
 
-  obtenerMiReservacion(id:string)
+  obtenerMiReservacion(id: string)
   {
+    console.log(id);
     return this._http.get("/api/mireservacion/"+id);
   }
 
