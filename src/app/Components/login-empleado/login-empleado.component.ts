@@ -40,7 +40,7 @@ export class LoginEmpleadoComponent implements OnInit {
     this.us = this.loginE.value.User;
     this.password = this.loginE.value.Password;
 
-    this._empleadoService.getempleado(this.us).subscribe(data =>{
+    this._empleadoService.getEmpleado(this.us).subscribe(data =>{
       if(Object.keys(data).length == 0)
       {
         this.toastr.warning('No se encontró registro del empleado', 'ADVERTENCIA',
@@ -57,14 +57,14 @@ export class LoginEmpleadoComponent implements OnInit {
         if(pass == this.password)
         {
           // this._usuarioService.setIdUser(idUser);
-          // Se genera la cookie
+          // SE GENERA LA COOKIE
           this._cookies.setToken(this._cookies.getRandomToken(16), this._cookies.nuevaExpiracion(1));
           this._empleadoService.loginEmpleado(false);
           this.toastr.success('Acceso concedido', 'Acción exitosa',
           {
             positionClass: 'toast-bottom-right'
           });
-          // Se redirecciona a la página del empleado
+          // SE REDIRECCIONA A LA PÁGINA DE EMPLEADO
           this.router.navigate(['/empleados']);
         }
         else
