@@ -47,7 +47,8 @@ export class RegistroEmpleadosComponent implements OnInit
   {
     this.loading = true;
     
-    //
+    //HACER EL REGISTRO EN LA BASE DE DATOS
+
     this.loading = false;
     this.id = this.random();
     this.mostrarDatos(); 
@@ -60,8 +61,13 @@ export class RegistroEmpleadosComponent implements OnInit
 
   mostrarDatos()
   {
-    this.registroEmpleado.setValue({
-      ID: this.id,
+    /*
+      CUANDO SE DESEA MOSTRAR ALGO EN UN SOLO CAMPO DEL FORM GROUP 
+      SE UTILIZA LA FUNCION .patchValue YA QUE SI SE UTILIZA  .setValue 
+      ESTAMOS OBLIGADOS A PASAR INFORMACIÓN A TODOS LOS CAMPOS DEL FORMGROUP
+     */
+    this.registroEmpleado.patchValue({
+      ID: this.id
     });
   }
 
