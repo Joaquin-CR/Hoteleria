@@ -38,7 +38,7 @@ export class EmpleadosService
     return this._http.post(this.url+'/', empleado);
   }
 
-  getempleado(idEmpleado:string)
+  getEmpleado(idEmpleado:string)
   {
     return this._http.get(this.url+'/'+idEmpleado);
   }
