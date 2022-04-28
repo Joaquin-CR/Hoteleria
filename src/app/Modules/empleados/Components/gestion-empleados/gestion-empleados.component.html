@@ -1,4 +1,24 @@
 <div *ngIf="llamarGesEmpl">
-    Proximamente
+    <table class="table table-dark table-hover bg-dark text-center">
+        <thead>
+            <td class="col">Id de empleado</td>
+            <td class="col">Nombre del empleado</td>
+            <td class="col">Apellido del empleado</td>
+            <td class="col">Email del empleado</td>
+            <td class="col">Contraseña</td>
+            <td class="col">Puesto del empleado</td>
+        </thead>
+        <tbody>
+            <!-- *ngFor="let reserv of res, let i = index" -->
+            <tr class="text">
+                <!-- <td class="col">{{ reserv.idRes }}</td>
+                <td class="col">{{ reserv.fecIn }}</td>
+                <td class="col">{{ reserv.fecOut }}</td>
+                <td class="col">{{ reserv.numA }}</td>
+                <td class="col">{{ reserv.numN }}</td>
+                <td class="col">{{ reserv.numC }}</td> -->
+            </tr>
+        </tbody>
+    </table>
 </div>
 
