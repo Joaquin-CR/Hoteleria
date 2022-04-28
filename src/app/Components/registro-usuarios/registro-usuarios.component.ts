@@ -61,7 +61,7 @@ export class RegistroUsuariosComponent implements OnInit {
            VERDADERO DEL IF*/
         if(Object.keys(res).length == 0)
         {
-          this.phone = ""+this.registroUsuario.value.Lada+this.registroUsuario.value.Phone
+          this.phone = ""+this.registroUsuario.value.Lada + this.registroUsuario.value.Phone
           const nuevoUser: Usuario = 
           {
             nomUser: this.registroUsuario.value.Name,
@@ -73,7 +73,7 @@ export class RegistroUsuariosComponent implements OnInit {
           }
           // SE REGISTRA EL NUEVO USUARIO EN LA BASE DE DATOS
           this._usuarioService.addUsuario(nuevoUser).subscribe();
-          this.toastr.success('El registro se logró de manera exitosa', 'ACCION EXITOSA',
+          this.toastr.success('El registro se realizó de manera exitosa', 'ACCION EXITOSA',
           {
             positionClass: 'toast-bottom-right'
           });
