@@ -1,46 +1,48 @@
 <app-menu></app-menu>
 <body>
     <div class="container w-75 pt-5">
-        <div class="row">
-            <div class="col">
-                <!-- IMAGEN -->
-                <img class="logo" src="assets/Imagenes/Entrada.jpg" alt="Entrada">
-            </div>
-            <div class="col">
-                <div class="text-end">
-                    <!-- Logo -->
-                    <!-- <img class="logo" src="assets/Imagenes/Logo-caballo.png" alt="Playa"> -->
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <!-- IMAGEN -->
+                    <img class="logo" src="assets/Imagenes/Entrada.jpg" alt="Entrada">
                 </div>
-                <h2 class="fw-bold text-center pt-4">Bienvenido</h2>
-                <h3 class="text-center">Inicio de sesion para empleados</h3>
-                <!-- LOGIN -->
-                <form [formGroup]="loginE" (ngSubmit)="empleadoLogin()">
-                    <div class="row g-5">
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <input type="text" formControlName="User" class="form-control" id="floatingUser" placeholder="Juanito25">
-                                <label for="floatingUser">Id de Usuario</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating">
-                                <input type="password" formControlName="Password" class="form-control" id="floatingPass" placeholder="**************">
-                                <label for="floatingPass">Contraseña</label>
-                            </div>
-                        </div>
+                <div class="col">
+                    <div class="text-end">
+                        <!-- Logo -->
+                        <!-- <img class="logo" src="assets/Imagenes/Logo-caballo.png" alt="Playa"> -->
                     </div>
-                    <!-- BOTONES -->
+                    <h2 class="fw-bold text-center pt-4">Bienvenido</h2>
+                    <h3 class="text-center">Inicio de sesion para empleados</h3>
+                    <!-- LOGIN -->
+                    <form [formGroup]="loginE" (ngSubmit)="empleadoLogin()">
+                        <div class="row g-5">
+                            <div class="col-md">
+                                <div class="form-floating mb-3">
+                                    <input type="text" formControlName="User" class="form-control" id="floatingUser" placeholder="Juanito25">
+                                    <label for="floatingUser">Id de Usuario</label>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                    <input type="password" formControlName="Password" class="form-control" id="floatingPass" placeholder="**************">
+                                    <label for="floatingPass">Contraseña</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- BOTONES -->
+                        <div class="d-grid mb-1">
+                            <button class="btn mt-3 btn-outline-primary" type="submit">Ingresar</button>
+                        </div>
+                    </form>
                     <div class="d-grid mb-1">
-                        <button class="btn mt-3 btn-outline-primary" type="submit">Ingresar</button>
+                        <button routerLink="/landingpage" class="btn mt-3 btn-outline-dark" >Regresar</button>
                     </div>
-                </form>
-                <div class="d-grid mb-1">
-                    <button routerLink="/landingpage" class="btn mt-3 btn-outline-dark" >Regresar</button>
-                </div>
-                <!-- REGISTRO -->
-                <div class="my-3s">
-                    <!-- <span>No tienes cuenta? <a href="">Registrate</a></span><br> -->
-                    <span><a href="">Recuperar Contraseña</a></span>
+                    <!-- REGISTRO -->
+                    <div class="my-3s">
+                        <!-- <span>No tienes cuenta? <a href="">Registrate</a></span><br> -->
+                        <span><a href="">Recuperar Contraseña</a></span>
+                    </div>
                 </div>
             </div>
         </div>
